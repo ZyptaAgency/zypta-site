@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Donnez vie à votre business en ligne.",
+    "sub": "Transformez votre présence digitale. On s'occupe de tout.",
+    "cta": "Découvrir nos services"
+  },
+  "howItWorks": {
+    "title": "Simple. Rapide. Efficace.",
+    "step1title": "On discute",
+    "step1desc": "Parlez-nous de vos besoins et objectifs",
+    "step2title": "On choisit ensemble",
+    "step2desc": "Sélectionnez le service qui correspond à votre vision",
+    "step3title": "On lance",
+    "step3desc": "Remplissez le formulaire, on gère le reste"
+  },
+  "forWho": {
+    "title": "Pour qui ?",
+    "desc": "Nos services s'adressent à tous ceux qui veulent digitaliser leur activité. Que vous soyez coiffeur, plombier, fondateur de startup, freelance ou créatif — si vous voulez une présence en ligne forte, on est là pour vous.",
+    "cta": "Voir nos services"
+  },
+  "whyUs": {
+    "title": "Pourquoi Zypta ?",
+    "point1": "Fondée par un diplômé en e-business certifié",
+    "point2": "Une large gamme de services avec des designs uniques",
+    "point3": "Une expérience prouvée en solutions digitales",
+    "point4": "Un processus simple, rapide et efficace"
+  },
+  "finalCta": {
+    "headline": "Prêt à passer au digital ?",
+    "sub": "N'attendez plus — construisons votre succès en ligne ensemble.",
+    "cta": "Lancer mon projet"
+  },
+  "services": {
+    "title": "Nos Services",
+    "intro": "Nos services sont conçus pour élever votre marque et établir votre identité digitale.",
+    "s1title": "Site Vitrine WordPress",
+    "s1desc": "Idéal pour les professionnels (coiffeurs, plombiers, PME) qui ont besoin d'une présence web claire et efficace.",
+    "s2title": "Site E-Commerce (WordPress/Shopify)",
+    "s2desc": "Des boutiques en ligne puissantes et faciles à gérer, adaptées à vos produits et votre audience.",
+    "s3title": "SEO / SEA",
+    "s3desc": "Soyez trouvé en ligne. Améliorez votre visibilité, votre ranking et vos campagnes publicitaires.",
+    "s4title": "Création de Logo & Branding",
+    "s4desc": "Des logos uniques qui reflètent votre identité et attirent la bonne attention.",
+    "cta": "Nous contacter"
+  },
+  "about": {
+    "heroHeadline": "On est Zypta.",
+    "heroSub": "Jeune. Indépendant. Passionné de digital.",
+    "storyTitle": "Notre histoire",
+    "storyText": "Zypta est une structure jeune et indépendante, née d'une passion pour le digital. Fondée par un diplômé en e-business, on mêle expertise technique, créativité et agilité pour accompagner entrepreneurs, freelances et PME dans la construction de leur présence en ligne.",
+    "missionTitle": "Notre mission",
+    "missionText": "Rendre le digital accessible, impactant et efficace pour quiconque souhaite démarrer, évoluer professionnellement ou se démarquer sur le web. On construit avec vous, pas juste pour vous.",
+    "valuesTitle": "Nos valeurs",
+    "v1": "Simplicité — Rendre le digital clair et accessible",
+    "v2": "Créativité — Construire des solutions uniques et inspirantes",
+    "v3": "Confiance — Travailler avec transparence et honnêteté",
+    "v4": "Agilité — S'adapter rapidement à vos besoins",
+    "processTitle": "Comment ça marche ?",
+    "processText": "Tout commence par un premier contact (email, appel ou visio). On discute de vos objectifs, puis on vous fournit une proposition claire avec devis et délais. De là, on travaille ensemble — étape par étape — avec une transparence totale, du premier jet au lancement, et même au-delà.",
+    "faqTitle": "FAQ",
+    "faq1q": "Quels types de sites proposez-vous ?",
+    "faq1a": "Nous proposons des sites vitrines WordPress, des boutiques e-commerce (WordPress/Shopify), ainsi que des services de branding et de marketing digital.",
+    "faq2q": "Combien de temps prend un projet ?",
+    "faq2a": "Un site vitrine prend généralement 1 à 2 semaines. Un e-commerce peut prendre 2 à 4 semaines selon la complexité. On vous donne toujours un délai clair dès le départ.",
+    "faq3q": "Comment se passe la création de site ?",
+    "faq3a": "On commence par un échange pour comprendre vos besoins. Ensuite, on vous propose un devis et un calendrier. On travaille ensemble étape par étape avec des validations régulières.",
+    "faq4q": "Proposez-vous de la maintenance ?",
+    "faq4a": "Oui, nous proposons des formules de maintenance pour garder votre site à jour, sécurisé et performant.",
+    "faq5q": "Faites-vous du SEO et de la pub en ligne ?",
+    "faq5a": "Absolument. Nous optimisons votre référencement naturel (SEO) et gérons vos campagnes publicitaires (Google Ads, Meta Ads) pour maximiser votre visibilité.",
+    "faq6q": "Que comprend la création de logo ?",
+    "faq6a": "Notre service inclut la recherche créative, plusieurs propositions de logo, les révisions, et la livraison en formats haute résolution pour web et print.",
+    "faq7q": "Gérez-vous les campagnes email ?",
+    "faq7a": "Oui, nous configurons et gérons vos campagnes email via des plateformes comme Mailchimp ou Brevo pour engager votre audience efficacement."
+  },
+  "contact": {
+    "headline": "Parlons de votre projet.",
+    "sub": "On est à un message de lancer votre présence digitale.",
+    "name": "Nom complet",
+    "email": "Adresse email",
+    "subject": "Sujet",
+    "message": "Message",
+    "submit": "Envoyer →",
+    "success": "Message envoyé ! On revient vers vous très vite 🚀",
+    "infoTitle": "Nos coordonnées",
+    "phone": "+32 487 10 29 28",
+    "emailAddress": "contact@zypta.be",
+    "address": "Bruxelles, Belgique",
+    "hours": "Lundi – Vendredi, 11h – 20h",
+    "instagram": "@zypta.be",
+    "instaCta": "Contactez-nous sur Instagram",
+    "instaAction": "Réponse rapide via DM",
+    "emailCta": "Envoyez-nous un email",
+    "emailAction": "On vous répond sous 24h",
+    "quickResponse": "Vous souhaitez une réponse plus rapidement ?"
+  },
+  "preview": {
+    "title": "Demandez un aperçu gratuit",
+    "sub": "Dites-nous ce que vous cherchez, on vous prépare une maquette personnalisée.",
+    "name": "Nom complet",
+    "email": "Adresse email",
+    "phone": "Téléphone",
+    "business": "Votre activité",
+    "businessPlaceholder": "Ex: Coiffeur, Restaurant, Freelance...",
+    "serviceLabel": "Service souhaité",
+    "serviceOptions": {
+      "showcase": "Site Vitrine",
+      "ecommerce": "Site E-Commerce",
+      "seo": "SEO / SEA",
+      "branding": "Logo & Branding",
+      "other": "Autre"
+    },
+    "details": "Décrivez brièvement votre projet",
+    "detailsPlaceholder": "Parlez-nous de votre vision, vos objectifs, vos inspirations...",
+    "submit": "Recevoir mon aperçu →",
+    "success": "Demande envoyée ! On prépare votre aperçu et on revient vers vous très vite 🎨"
+  },
+  "footer": {
+    "slogan": "Zip it. Type it. Launch it.",
+    "hours": "Lundi – Vendredi, 11h – 20h",
+    "rights": "© 2026 Zypta. Tous droits réservés."
+  }
+}

@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-void: #03010a;
+  --bg-deep: #0d0521;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --nova-core: #ff6b35;
+  --nova-mid: #c84bff;
+  --nova-outer: #ff2d8f;
+  --nova-glow: #7b2fff;
+  --nova-ice: #00d4ff;
+  --text-white: #f0eeff;
+  --text-muted: rgba(240, 238, 255, 0.55);
+  --accent-primary: #c84bff;
+  --accent-secondary: #ff6b35;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-void);
+  color: var(--text-white);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(200, 75, 255, 0.4);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-void);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(200, 75, 255, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 75, 255, 0.5);
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center font-semibold transition-all duration-300;
+    background: linear-gradient(135deg, #c84bff, #ff2d8f);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 32px;
+    box-shadow: 0 0 30px rgba(200, 75, 255, 0.4);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(200, 75, 255, 0.7);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center font-semibold transition-all duration-300;
+    background: transparent;
+    border: 1px solid rgba(200, 75, 255, 0.6);
+    color: var(--text-white);
+    border-radius: 50px;
+    padding: 14px 32px;
+  }
+  .btn-outline:hover {
+    background: rgba(200, 75, 255, 0.15);
+    border-color: #c84bff;
+    box-shadow: 0 0 20px rgba(200, 75, 255, 0.3);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  .glass-card:hover {
+    border-color: rgba(200, 75, 255, 0.3);
+    box-shadow: 0 0 40px rgba(200, 75, 255, 0.15);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #ff6b35, #c84bff, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nebula-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+  }
+}

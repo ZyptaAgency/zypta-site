@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Bring your business online.",
+    "sub": "Transform your digital presence. We handle everything.",
+    "cta": "Explore Our Services"
+  },
+  "howItWorks": {
+    "title": "Simple. Fast. Efficient.",
+    "step1title": "Talk With Us",
+    "step1desc": "Discuss your needs and goals",
+    "step2title": "Explore Our Services",
+    "step2desc": "Choose the service that fits your vision",
+    "step3title": "Fill Out the Form",
+    "step3desc": "We'll handle the rest"
+  },
+  "forWho": {
+    "title": "Who Is This For?",
+    "desc": "Our services are for anyone looking to digitize their business. Whether you're a hairdresser, plumber, startup founder, freelancer, or creative – we've got your back.",
+    "cta": "Discover Our Services"
+  },
+  "whyUs": {
+    "title": "Why Zypta?",
+    "point1": "Built by a certified e-business professional",
+    "point2": "A wide range of services with unique designs",
+    "point3": "Proven experience in digital solutions",
+    "point4": "Simple, fast, and efficient process"
+  },
+  "finalCta": {
+    "headline": "Ready to go digital?",
+    "sub": "Don't wait – let's build your online success together.",
+    "cta": "Start Your Project"
+  },
+  "services": {
+    "title": "Our Services",
+    "intro": "Our range of services is designed to elevate your brand and establish your digital identity.",
+    "s1title": "WordPress Showcase Website",
+    "s1desc": "Ideal for professionals like hairdressers, plumbers, or small businesses who need a clean and effective website presence.",
+    "s2title": "E-Commerce Websites (WordPress/Shopify)",
+    "s2desc": "Powerful, easy-to-manage online stores tailored to your products and audience.",
+    "s3title": "SEO / SEA Optimization",
+    "s3desc": "Get discovered online. Improve visibility, ranking, and paid ad strategies to boost traffic and leads.",
+    "s4title": "Logo Creation & Branding",
+    "s4desc": "Unique logos that reflect your identity and attract the right attention.",
+    "cta": "Get in Touch"
+  },
+  "about": {
+    "heroHeadline": "We're Zypta.",
+    "heroSub": "Young. Independent. Passionate about digital.",
+    "storyTitle": "Our Story",
+    "storyText": "Zypta is a young, independent structure born from a passion for digital. Founded by an e-business graduate, we blend technical expertise, creativity, and agility to support entrepreneurs, freelancers, and small businesses.",
+    "missionTitle": "Our Mission",
+    "missionText": "To make digital accessible, impactful, and efficient for anyone looking to get started, grow professionally, or stand out on the web. We build with you, not just for you.",
+    "valuesTitle": "Our Values",
+    "v1": "Simplicity — Making the digital world clear and accessible",
+    "v2": "Creativity — Building unique, inspiring solutions",
+    "v3": "Trust — Working with transparency and honesty",
+    "v4": "Agility — Adapting quickly to your needs",
+    "processTitle": "How Does a Project Work?",
+    "processText": "Everything starts with a first contact (email, call, or video meeting). We discuss your goals, provide a clear proposal with a quote and timeline. We work together step by step with full transparency — from first draft to launch, and beyond.",
+    "faqTitle": "FAQ",
+    "faq1q": "What types of websites do you offer?",
+    "faq1a": "We offer WordPress showcase websites, e-commerce stores (WordPress/Shopify), as well as branding and digital marketing services.",
+    "faq2q": "How long does it take?",
+    "faq2a": "A showcase website typically takes 1 to 2 weeks. An e-commerce site can take 2 to 4 weeks depending on complexity. We always give you a clear timeline upfront.",
+    "faq3q": "How does the process work?",
+    "faq3a": "We start with a conversation to understand your needs. Then we provide a quote and timeline. We work together step by step with regular check-ins.",
+    "faq4q": "Do you offer maintenance?",
+    "faq4a": "Yes, we offer maintenance plans to keep your site updated, secure, and performing at its best.",
+    "faq5q": "Do you provide SEO and online advertising?",
+    "faq5a": "Absolutely. We optimize your SEO and manage your advertising campaigns (Google Ads, Meta Ads) to maximize your online visibility.",
+    "faq6q": "What does your logo service include?",
+    "faq6a": "Our service includes creative research, multiple logo proposals, revisions, and delivery in high-resolution formats for web and print.",
+    "faq7q": "Do you handle email campaigns?",
+    "faq7a": "Yes, we set up and manage your email campaigns through platforms like Mailchimp or Brevo to effectively engage your audience."
+  },
+  "contact": {
+    "headline": "Let's talk about your project.",
+    "sub": "We're just one message away from launching your digital presence.",
+    "name": "Full Name",
+    "email": "Email Address",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Send Message →",
+    "success": "Message sent! We'll get back to you very soon 🚀",
+    "infoTitle": "Contact Info",
+    "phone": "+32 487 10 29 28",
+    "emailAddress": "contact@zypta.be",
+    "address": "Brussels, Belgium",
+    "hours": "Monday to Friday, 11 AM – 8 PM",
+    "instagram": "@zypta.be",
+    "instaCta": "Contact us on Instagram",
+    "instaAction": "Quick reply via DM",
+    "emailCta": "Send us an email",
+    "emailAction": "We reply within 24h",
+    "quickResponse": "Want a faster response?"
+  },
+  "preview": {
+    "title": "Request a Free Preview",
+    "sub": "Tell us what you're looking for, and we'll prepare a personalized mockup.",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "business": "Your Business",
+    "businessPlaceholder": "E.g. Hairdresser, Restaurant, Freelancer...",
+    "serviceLabel": "Desired Service",
+    "serviceOptions": {
+      "showcase": "Showcase Website",
+      "ecommerce": "E-Commerce Website",
+      "seo": "SEO / SEA",
+      "branding": "Logo & Branding",
+      "other": "Other"
+    },
+    "details": "Briefly describe your project",
+    "detailsPlaceholder": "Tell us about your vision, goals, inspirations...",
+    "submit": "Get My Preview →",
+    "success": "Request sent! We're preparing your preview and will get back to you soon 🎨"
+  },
+  "footer": {
+    "slogan": "Zip it. Type it. Launch it.",
+    "hours": "Monday to Friday, 11 AM – 8 PM",
+    "rights": "© 2026 Zypta. All rights reserved."
+  }
+}
