@@ -17,6 +17,9 @@
     "lucide-react": "^0.460.0",
     "react-hook-form": "^7.54.0"
   },
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@types/react": "^18.2.0",
