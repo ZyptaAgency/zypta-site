@@ -23,6 +23,11 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  overflow-x: clip;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -30,7 +35,6 @@ html {
 body {
   background: var(--bg-void);
   color: var(--text-white);
-  overflow-x: hidden;
 }
 
 ::selection {
