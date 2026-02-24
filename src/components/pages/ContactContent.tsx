@@ -111,16 +111,27 @@ function ContactForm() {
   const [sending, setSending] = useState(false);
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>();
 
+  const [error, setError] = useState<string | null>(null);
+
   const onSubmit = async (data: ContactFormData) => {
     setSending(true);
+    setError(null);
     try {
-      await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ type: 'contact', ...data }),
       });
-    } catch {
-      // Still show success to the user
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(json.details || json.error || 'Erreur lors de l\'envoi');
+        setSending(false);
+        return;
+      }
+    } catch (e) {
+      setError('Erreur de connexion');
+      setSending(false);
+      return;
     }
     setSending(false);
     setSent(true);
@@ -170,6 +181,7 @@ function ContactForm() {
               <textarea {...register('message', { required: true })} placeholder={t('message')} rows={4} className={`${inputStyles} resize-none`} />
               {errors.message && <p className="text-nova-outer text-xs mt-1">Required</p>}
             </div>
+            {error && <p className="text-nova-outer text-sm">{error}</p>}
             <button type="submit" disabled={sending} className="btn-primary w-full text-base disabled:opacity-60">
               {sending ? t('sending') : t('submit')}
             </button>
@@ -184,18 +196,28 @@ function PreviewForm() {
   const t = useTranslations('preview');
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const { register, handleSubmit, formState: { errors }, reset } = useForm<PreviewFormData>();
 
   const onSubmit = async (data: PreviewFormData) => {
     setSending(true);
+    setError(null);
     try {
-      await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ type: 'preview', ...data }),
       });
-    } catch {
-      // Still show success to the user
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(json.details || json.error || 'Erreur lors de l\'envoi');
+        setSending(false);
+        return;
+      }
+    } catch (e) {
+      setError('Erreur de connexion');
+      setSending(false);
+      return;
     }
     setSending(false);
     setSent(true);
@@ -277,6 +299,7 @@ function PreviewForm() {
               <div>
                 <textarea {...register('details')} placeholder={t('detailsPlaceholder')} rows={3} className={`${inputStyles} resize-none`} />
               </div>
+              {error && <p className="text-nova-outer text-sm">{error}</p>}
               <button type="submit" disabled={sending} className="btn-primary w-full text-base disabled:opacity-60">
                 {sending ? t('sending') : t('submit')}
               </button>

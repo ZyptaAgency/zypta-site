@@ -10,9 +10,11 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { type, ...data } = body;
 
+    const FROM_EMAIL = process.env.FROM_EMAIL || 'noreply@zypta.be';
+
     if (type === 'contact') {
       await resend.emails.send({
-        from: 'Zypta Site <onboarding@resend.dev>',
+        from: `Zypta Site <${FROM_EMAIL}>`,
         to: TO_EMAIL,
         subject: `📩 Nouveau message de ${data.name} — ${data.subject}`,
         html: `
@@ -36,7 +38,7 @@ export async function POST(request: Request) {
       });
     } else if (type === 'preview') {
       await resend.emails.send({
-        from: 'Zypta Site <onboarding@resend.dev>',
+        from: `Zypta Site <${FROM_EMAIL}>`,
         to: TO_EMAIL,
         subject: `🎨 Nouvelle demande d'aperçu — ${data.business}`,
         html: `
@@ -65,7 +67,11 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Email send error:', error);
-    return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
+    const err = error as { message?: string; statusCode?: number };
+    console.error('Email send error:', err);
+    return NextResponse.json(
+      { error: 'Failed to send email', details: err?.message || String(error) },
+      { status: 500 }
+    );
   }
 }
