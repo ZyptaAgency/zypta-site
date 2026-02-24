@@ -21,6 +21,9 @@ interface PreviewFormData {
   business: string;
   service: string;
   details: string;
+  servicesOffered: string;
+  photo?: FileList;
+  logo?: FileList;
 }
 
 const inputStyles =
@@ -199,14 +202,17 @@ function PreviewForm() {
   const [error, setError] = useState<string | null>(null);
   const { register, handleSubmit, formState: { errors }, reset } = useForm<PreviewFormData>();
 
-  const onSubmit = async (data: PreviewFormData) => {
+  const onSubmit = async (data: PreviewFormData, e?: React.BaseSyntheticEvent) => {
     setSending(true);
     setError(null);
     try {
+      const form = e?.target as HTMLFormElement;
+      const formData = form ? new FormData(form) : new FormData();
+      formData.set('type', 'preview');
+
       const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type: 'preview', ...data }),
+        body: formData,
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok) {
@@ -214,7 +220,7 @@ function PreviewForm() {
         setSending(false);
         return;
       }
-    } catch (e) {
+    } catch (err) {
       setError('Erreur de connexion');
       setSending(false);
       return;
@@ -252,6 +258,7 @@ function PreviewForm() {
           ) : (
             <motion.form
               key="form"
+              encType="multipart/form-data"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -298,6 +305,20 @@ function PreviewForm() {
               </div>
               <div>
                 <textarea {...register('details')} placeholder={t('detailsPlaceholder')} rows={3} className={`${inputStyles} resize-none`} />
+              </div>
+              <div>
+                <label className="block text-text-muted text-xs mb-2 font-medium">{t('servicesOfferedLabel')}</label>
+                <textarea {...register('servicesOffered')} placeholder={t('servicesOfferedPlaceholder')} rows={3} className={`${inputStyles} resize-none`} />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-text-muted text-xs mb-2 font-medium">{t('photoLabel')}</label>
+                  <input {...register('photo')} type="file" accept="image/*" className={`${inputStyles} file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-accent-primary/20 file:text-accent-primary hover:file:bg-accent-primary/30 file:cursor-pointer`} />
+                </div>
+                <div>
+                  <label className="block text-text-muted text-xs mb-2 font-medium">{t('logoLabel')}</label>
+                  <input {...register('logo')} type="file" accept="image/*,.svg" className={`${inputStyles} file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-accent-primary/20 file:text-accent-primary hover:file:bg-accent-primary/30 file:cursor-pointer`} />
+                </div>
               </div>
               {error && <p className="text-nova-outer text-sm">{error}</p>}
               <button type="submit" disabled={sending} className="btn-primary w-full text-base disabled:opacity-60">

@@ -67,12 +67,39 @@ export default function AboutContent() {
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Hero */}
         <AnimatedSection className="text-center mb-20">
-          <h1 className="font-display text-5xl md:text-7xl font-bold gradient-text mb-4">
+          <h1 className="font-display text-5xl md:text-7xl font-normal gradient-text mb-4">
             <ZyptaText text={t('heroHeadline')} />
           </h1>
           <p className="text-text-muted text-lg md:text-xl">
             {t('heroSub')}
           </p>
+        </AnimatedSection>
+
+        {/* Founder */}
+        <AnimatedSection className="mb-20">
+          <div className="glass-card p-8 md:p-10 flex flex-col md:flex-row items-center gap-8">
+            <div className="relative shrink-0">
+              <div className="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden ring-2 ring-accent-primary/30 shadow-[0_0_40px_rgba(200,75,255,0.2)]">
+                <Image
+                  src="/images/mahammoud-boulale.png"
+                  alt="Mahammoud Boulale"
+                  width={224}
+                  height={224}
+                  className="object-cover object-top w-full h-full"
+                  priority
+                />
+              </div>
+            </div>
+            <div className="text-center md:text-left">
+              <h2 className="font-display text-2xl md:text-3xl font-bold gradient-text mb-2">
+                {t('founderName')}
+              </h2>
+              <p className="text-accent-primary font-semibold text-sm mb-4">{t('founderRole')}</p>
+              <p className="text-text-muted leading-relaxed">
+                {t('founderBio')}
+              </p>
+            </div>
+          </div>
         </AnimatedSection>
 
         {/* Story */}
@@ -166,24 +193,38 @@ export default function AboutContent() {
           </div>
         </AnimatedSection>
 
-        {/* Process */}
+        {/* Process - Parcours vertical */}
         <AnimatedSection className="mb-20">
           <h2 className="font-display text-3xl font-bold text-text-white mb-4">
             {t('processTitle')}
           </h2>
-          <div className="glass-card p-8">
-            <div className="relative pl-8 border-l-2 border-accent-primary/30 space-y-8">
-              {['contact', 'proposal', 'build', 'launch'].map((step, i) => (
-                <div key={step} className="relative">
-                  <div className="absolute -left-[calc(0.5rem+9px)] top-1 w-4 h-4 rounded-full bg-accent-primary shadow-[0_0_10px_rgba(200,75,255,0.5)]" />
-                  <p className="text-text-muted text-sm leading-relaxed">
-                    {i === 0 && t('processText').split('.')[0] + '.'}
-                    {i === 1 && t('processText').split('.')[1]?.trim() + '.'}
-                    {i === 2 && t('processText').split('.')[2]?.trim() + '.'}
-                    {i === 3 && t('processText').split('.').slice(3).join('.').trim()}
-                  </p>
-                </div>
-              ))}
+          <div className="glass-card p-8 md:p-10 overflow-hidden">
+            <div className="relative pl-8">
+              {/* Ligne de parcours verticale */}
+              <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-gradient-to-b from-accent-primary/40 via-accent-primary/50 to-transparent" />
+
+              <div className="relative flex flex-col gap-8">
+                {(['contact', 'proposal', 'build'] as const).map((step, i) => {
+                  const parts = t('processText').split('.').filter(Boolean);
+                  const text = parts[i]?.trim();
+                  const stepTitle = t(`processStep${i + 1}`);
+                  return text ? (
+                    <AnimatedSection key={step} delay={i * 0.08}>
+                      <div className="flex items-start gap-4">
+                        <div className="relative z-10 -ml-2 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-lg font-bold text-white bg-gradient-to-br from-accent-primary to-nova-core shadow-[0_0_25px_rgba(200,75,255,0.4)] ring-4 ring-[var(--bg-void)]">
+                          {i + 1}
+                        </div>
+                        <div className="flex-1 pt-1">
+                          <h4 className="font-display font-semibold text-text-white mb-2">{stepTitle}</h4>
+                          <p className="text-text-muted text-sm leading-relaxed">
+                            {text}{!text.endsWith('.') ? '.' : ''}
+                          </p>
+                        </div>
+                      </div>
+                    </AnimatedSection>
+                  ) : null;
+                })}
+              </div>
             </div>
           </div>
         </AnimatedSection>
