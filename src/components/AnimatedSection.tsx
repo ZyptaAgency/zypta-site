@@ -10,7 +10,7 @@ interface Props {
 }
 
 export default function AnimatedSection({ children, className = '', delay = 0 }: Props) {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 768px)');
@@ -20,16 +20,16 @@ export default function AnimatedSection({ children, className = '', delay = 0 }:
     return () => mq.removeEventListener('change', fn);
   }, []);
 
+  if (isMobile) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: isMobile ? 12 : 24 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: isMobile ? '40px 0px' : '80px 0px', amount: isMobile ? 0.1 : 0.2 }}
-      transition={{
-        duration: isMobile ? 0.5 : 0.9,
-        delay: isMobile ? 0 : delay,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      }}
+      viewport={{ once: true, margin: '80px 0px', amount: 0.2 }}
+      transition={{ duration: 0.9, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={className}
     >
       {children}
