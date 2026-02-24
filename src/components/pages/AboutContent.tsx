@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Sparkles, Shield, Zap, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 import AnimatedSection from '../AnimatedSection';
 import ZyptaText from '../ZyptaText';
 
@@ -92,6 +93,50 @@ export default function AboutContent() {
           <p className="text-text-muted leading-relaxed">
             {t('missionText')}
           </p>
+        </AnimatedSection>
+
+        {/* Certifications */}
+        <AnimatedSection className="mb-20">
+          <h2 className="font-display text-3xl font-bold gradient-text mb-3">
+            {t('certsTitle')}
+          </h2>
+          <p className="text-text-muted text-sm mb-8">{t('certsSub')}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {([
+              { logo: '/logos/ephec.png', bg: 'white', key: 'cert1', h: 24 },
+              { logo: '/logos/scrum.png', bg: 'white', key: 'cert2', h: 24 },
+              { logo: '/logos/scrum.png', bg: 'white', key: 'cert3', h: 24 },
+              { logo: '/logos/google-ads.svg', bg: 'transparent', key: 'cert4', h: 24 },
+              { logo: '/logos/opquast.svg', bg: 'white', key: 'cert5', h: 16 },
+              { logo: '/logos/lje.png', bg: 'white', key: 'cert6', h: 24 },
+            ] as const).map((cert, i) => (
+              <AnimatedSection key={cert.key} delay={i * 0.08}>
+                <motion.div
+                  whileHover={{ scale: 1.03, y: -4 }}
+                  className="glass-card p-5 h-full flex flex-col gap-3"
+                >
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 p-1.5"
+                      style={{ background: cert.bg }}
+                    >
+                      <Image
+                        src={cert.logo}
+                        alt=""
+                        width={40}
+                        height={cert.h}
+                        className="object-contain"
+                      />
+                    </div>
+                    <h4 className="font-display text-sm font-semibold text-text-white leading-tight">
+                      {t(`${cert.key}Title`)}
+                    </h4>
+                  </div>
+                  <p className="text-text-muted text-xs leading-relaxed">{t(`${cert.key}Issuer`)}</p>
+                </motion.div>
+              </AnimatedSection>
+            ))}
+          </div>
         </AnimatedSection>
 
         {/* Values */}
