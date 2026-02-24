@@ -12,6 +12,9 @@ export default function StarBackground() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    const isMobile = window.innerWidth <= 768;
+    const starCount = isMobile ? 60 : 200;
+
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -19,7 +22,7 @@ export default function StarBackground() {
     resize();
     window.addEventListener('resize', resize);
 
-    const stars = Array.from({ length: 200 }, () => ({
+    const stars = Array.from({ length: starCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       r: Math.random() * 1.5 + 0.3,
