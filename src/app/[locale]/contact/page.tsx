@@ -4,7 +4,7 @@ import ContactContent from '@/components/pages/ContactContent';
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const t = await getTranslations({ locale: params.locale, namespace: 'contact' });
   return {
-    title: 'ZYPTA — ' + t('headline'),
+    title: 'Zypta',
     description: t('sub'),
   };
 }

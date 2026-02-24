@@ -4,7 +4,7 @@ import AboutContent from '@/components/pages/AboutContent';
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const t = await getTranslations({ locale: params.locale, namespace: 'about' });
   return {
-    title: 'ZYPTA — ' + t('heroHeadline'),
+    title: 'Zypta',
     description: t('heroSub'),
   };
 }
