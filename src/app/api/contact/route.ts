@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { type, ...data } = body;
 
-    const FROM_EMAIL = process.env.FROM_EMAIL || 'noreply@zypta.be';
+    const FROM_EMAIL = process.env.FROM_EMAIL || 'onboarding@resend.dev';
 
     if (type === 'contact') {
       await resend.emails.send({
