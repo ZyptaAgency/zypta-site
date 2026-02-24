@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 export async function POST(request: Request) {
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const TO_EMAIL = process.env.CONTACT_EMAIL || 'business@zypta.be';
+    const TO_EMAIL = process.env.CONTACT_EMAIL || 'contact@zypta.be';
     const body = await request.json();
     const { type, ...data } = body;
 
