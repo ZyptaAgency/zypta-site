@@ -3,8 +3,9 @@ import ContactContent from '@/components/pages/ContactContent';
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const t = await getTranslations({ locale: params.locale, namespace: 'contact' });
+  const tNav = await getTranslations({ locale: params.locale, namespace: 'nav' });
   return {
-    title: 'Zypta',
+    title: tNav('contact'),
     description: t('sub'),
   };
 }

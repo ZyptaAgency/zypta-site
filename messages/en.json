@@ -5,6 +5,10 @@
     "about": "About Us",
     "contact": "Contact"
   },
+  "seo": {
+    "siteName": "Zypta",
+    "siteDescription": "Zypta — Digital agency in Belgium. Modern websites, e-commerce, SEO, logo creation and branding. Brussels."
+  },
   "hero": {
     "headline": "Bring your business online.",
     "sub": "Transform your digital presence. We handle everything.",

@@ -3,8 +3,9 @@ import AboutContent from '@/components/pages/AboutContent';
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const t = await getTranslations({ locale: params.locale, namespace: 'about' });
+  const tNav = await getTranslations({ locale: params.locale, namespace: 'nav' });
   return {
-    title: 'Zypta',
+    title: tNav('about'),
     description: t('heroSub'),
   };
 }

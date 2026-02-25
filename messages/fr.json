@@ -5,6 +5,10 @@
     "about": "À propos",
     "contact": "Contact"
   },
+  "seo": {
+    "siteName": "Zypta",
+    "siteDescription": "Zypta — Agence digitale en Belgique. Sites web modernes, e-commerce, SEO, création de logo et branding. Bruxelles."
+  },
   "hero": {
     "headline": "Donnez vie à votre business en ligne.",
     "sub": "Transformez votre présence digitale. On s'occupe de tout.",

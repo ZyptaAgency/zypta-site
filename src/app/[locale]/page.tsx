@@ -9,8 +9,9 @@ import FinalCta from '@/components/home/FinalCta';
 
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const t = await getTranslations({ locale: params.locale, namespace: 'hero' });
+  const tNav = await getTranslations({ locale: params.locale, namespace: 'nav' });
   return {
-    title: 'Zypta',
+    title: tNav('home'),
     description: t('sub'),
   };
 }
