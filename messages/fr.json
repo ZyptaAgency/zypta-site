@@ -7,33 +7,50 @@
   },
   "seo": {
     "siteName": "Zypta",
-    "siteDescription": "Zypta — Agence digitale en Belgique. Sites web modernes, e-commerce, SEO, création de logo et branding. Bruxelles."
+    "siteDescription": "Zypta — Agence digitale en Belgique. Sites web modernes, e-commerce, SEO, création de logo et branding. Bruxelles.",
+    "homeTitle": "Agence digitale Belgique | Sites web, e-commerce, SEO & branding à Bruxelles",
+    "homeDescription": "Zypta est votre agence digitale à Bruxelles. Création de sites vitrines, e-commerce WordPress/Shopify, SEO, campagnes Google Ads et création de logos. Accompagnement personnalisé pour entrepreneurs et PME."
   },
   "hero": {
     "headline": "Donnez vie à votre business en ligne.",
     "sub": "Transformez votre présence digitale. On s'occupe de tout.",
     "cta": "Découvrir nos services"
   },
+  "homeIntro": {
+    "title": "Votre partenaire digital à Bruxelles",
+    "p1": "Zypta est une agence digitale belge qui accompagne entrepreneurs, freelances et PME dans leur transformation en ligne. Basés à Bruxelles, nous créons des sites web sur mesure, des boutiques e-commerce et des stratégies de visibilité qui font la différence.",
+    "p2": "Que vous démarriez votre activité ou que vous souhaitiez donner un nouvel élan à votre présence digitale, nous adaptons nos services à vos objectifs. Sites vitrines pour professionnels, e-commerce WordPress ou Shopify, référencement naturel (SEO), campagnes publicitaires Google Ads, création de logos et branding : nous couvrons l'essentiel pour faire grandir votre business.",
+    "p3": "Notre approche privilégie la simplicité et la transparence. Un premier échange pour comprendre vos besoins, une proposition claire avec devis et délais, puis un accompagnement étape par étape jusqu'au lancement. Pas de jargon inutile, pas de surprises : on construit ensemble.",
+    "cta": "Découvrir nos services"
+  },
+  "homeServices": {
+    "title": "Ce que nous proposons",
+    "s1": "Sites vitrines modernes et ergonomiques pour coiffeurs, plombiers, restaurants et PME. Une présence web claire qui convertit vos visiteurs en clients.",
+    "s2": "Boutiques e-commerce sur WordPress ou Shopify, faciles à gérer. Vendez en ligne avec un design professionnel et des outils adaptés à votre activité.",
+    "s3": "SEO et campagnes Google Ads pour améliorer votre visibilité. Référencement naturel et publicité payante pour attirer des clients qualifiés.",
+    "s4": "Création de logos et identité visuelle. Des designs uniques qui reflètent votre marque et vous démarquent de la concurrence.",
+    "cta": "Voir tous nos services"
+  },
   "howItWorks": {
     "title": "Simple. Rapide. Efficace.",
     "step1title": "On discute",
-    "step1desc": "Parlez-nous de vos besoins et objectifs",
+    "step1desc": "Parlez-nous de vos besoins, de votre activité et de vos objectifs. Un premier échange (email, appel ou visio) suffit pour poser les bases et comprendre votre vision.",
     "step2title": "On choisit ensemble",
-    "step2desc": "Sélectionnez le service qui correspond à votre vision",
+    "step2desc": "Sélectionnez le service qui correspond à votre projet : site vitrine, e-commerce, SEO, branding. Nous vous proposons un devis détaillé et un calendrier réaliste.",
     "step3title": "On lance",
-    "step3desc": "Remplissez le formulaire, on gère le reste"
+    "step3desc": "Remplissez notre formulaire, validez la proposition, et on s'occupe du reste. Suivi régulier, livraison dans les délais convenus, et support même après le lancement."
   },
   "forWho": {
     "title": "Pour qui ?",
-    "desc": "Nos services s'adressent à tous ceux qui veulent digitaliser leur activité. Que vous soyez coiffeur, plombier, fondateur de startup, freelance ou créatif — si vous voulez une présence en ligne forte, on est là pour vous.",
+    "desc": "Nos services s'adressent à tous ceux qui veulent digitaliser leur activité. Que vous soyez coiffeur, plombier, restaurateur, fondateur de startup, freelance ou créatif — si vous voulez une présence en ligne forte et professionnelle, on est là pour vous. Nous travaillons avec des budgets variés et des projets de toutes tailles, du site vitrine simple à la boutique e-commerce complète.",
     "cta": "Voir nos services"
   },
   "whyUs": {
     "title": "Pourquoi Zypta ?",
-    "point1": "Fondée par un diplômé en e-business certifié",
-    "point2": "Une large gamme de services avec des designs uniques",
-    "point3": "Une expérience prouvée en solutions digitales",
-    "point4": "Un processus simple, rapide et efficace"
+    "point1": "Fondée par un diplômé en e-business certifié (EPHEC) avec des certifications Scrum, Google Ads et Opquast. Une expertise reconnue au service de votre projet.",
+    "point2": "Une large gamme de services avec des designs uniques. Chaque site est pensé pour votre métier et votre audience, pas de templates génériques.",
+    "point3": "Une expérience prouvée en solutions digitales. Sites vitrines, e-commerce, SEO et campagnes pub : nous maîtrisons l'ensemble de la chaîne.",
+    "point4": "Un processus simple, rapide et efficace. Devis clair, délais respectés, communication transparente. On avance ensemble, sans stress."
   },
   "finalCta": {
     "headline": "Prêt à passer au digital ?",
@@ -156,7 +173,7 @@
     "successSub": "C'est noté ! Notre équipe prépare votre aperçu personnalisé. Vous le recevrez dans les 48h. Restez connecté !"
   },
   "cookies": {
-    "message": "Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic. En continuant, vous acceptez notre utilisation des cookies.",
+    "message": "Nous utilisons des cookies essentiels (langue, consentement). En continuant, vous acceptez leur utilisation.",
     "link": "Politique de confidentialité",
     "accept": "Accepter",
     "refuse": "Refuser"
@@ -167,7 +184,18 @@
     "collectTitle": "Collecte des données",
     "collectText": "Nous collectons les données que vous nous fournissez via nos formulaires de contact et d'aperçu : nom, email, téléphone, nom de votre activité, description de votre projet, et éventuellement des fichiers (photo, logo). Ces données sont transmises par email à notre équipe pour traiter votre demande.",
     "cookiesTitle": "Cookies utilisés",
-    "cookiesText": "Notre site utilise des cookies essentiels au fonctionnement (préférence de langue, consentement cookies). Nous n'utilisons pas de cookies publicitaires ou de tracking tiers. Vous pouvez refuser les cookies non essentiels via notre bandeau de consentement.",
+    "cookiesText": "Notre site utilise uniquement des cookies essentiels au fonctionnement. Nous n'utilisons pas de cookies publicitaires ou de tracking tiers.",
+    "essentialCookiesTitle": "Cookies essentiels",
+    "essentialCookiesIntro": "Les cookies suivants sont indispensables au fonctionnement du site et ne peuvent pas être désactivés :",
+    "essentialCookieName": "Nom",
+    "essentialCookiePurpose": "Finalité",
+    "essentialCookieDuration": "Durée",
+    "essentialCookie1Name": "cookie-consent",
+    "essentialCookie1Purpose": "Mémorise votre choix d'accepter ou refuser les cookies",
+    "essentialCookie1Duration": "1 an",
+    "essentialCookie2Name": "NEXT_LOCALE",
+    "essentialCookie2Purpose": "Mémorise votre préférence de langue (FR/EN)",
+    "essentialCookie2Duration": "1 an",
     "rightsTitle": "Vos droits (RGPD)",
     "rightsText": "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition à vos données. Pour exercer ces droits, contactez-nous à contact@zypta.be. Nous traiterons votre demande dans les 30 jours.",
     "contactTitle": "Contact",

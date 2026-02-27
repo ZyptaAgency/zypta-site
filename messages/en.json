@@ -7,33 +7,50 @@
   },
   "seo": {
     "siteName": "Zypta",
-    "siteDescription": "Zypta — Digital agency in Belgium. Modern websites, e-commerce, SEO, logo creation and branding. Brussels."
+    "siteDescription": "Zypta — Digital agency in Belgium. Modern websites, e-commerce, SEO, logo creation and branding. Brussels.",
+    "homeTitle": "Digital Agency Belgium | Websites, E-commerce, SEO & Branding in Brussels",
+    "homeDescription": "Zypta is your digital agency in Brussels. Showcase websites, WordPress/Shopify e-commerce, SEO, Google Ads campaigns and logo design. Personalized support for entrepreneurs and SMEs."
   },
   "hero": {
     "headline": "Bring your business online.",
     "sub": "Transform your digital presence. We handle everything.",
     "cta": "Explore Our Services"
   },
+  "homeIntro": {
+    "title": "Your Digital Partner in Brussels",
+    "p1": "Zypta is a Belgian digital agency supporting entrepreneurs, freelancers and SMEs in their online transformation. Based in Brussels, we create custom websites, e-commerce stores and visibility strategies that make a real difference.",
+    "p2": "Whether you're starting your business or looking to boost your digital presence, we adapt our services to your goals. Showcase sites for professionals, WordPress or Shopify e-commerce, natural search (SEO), Google Ads campaigns, logo design and branding: we cover everything you need to grow your business.",
+    "p3": "Our approach focuses on simplicity and transparency. A first conversation to understand your needs, a clear proposal with quote and timeline, then step-by-step support until launch. No jargon, no surprises: we build together.",
+    "cta": "Discover Our Services"
+  },
+  "homeServices": {
+    "title": "What We Offer",
+    "s1": "Modern, ergonomic showcase websites for hairdressers, plumbers, restaurants and SMEs. A clear online presence that turns visitors into customers.",
+    "s2": "E-commerce stores on WordPress or Shopify, easy to manage. Sell online with a professional design and tools tailored to your business.",
+    "s3": "SEO and Google Ads campaigns to boost your visibility. Natural search and paid advertising to attract qualified customers.",
+    "s4": "Logo design and visual identity. Unique designs that reflect your brand and set you apart from the competition.",
+    "cta": "View All Our Services"
+  },
   "howItWorks": {
     "title": "Simple. Fast. Efficient.",
     "step1title": "Talk With Us",
-    "step1desc": "Discuss your needs and goals",
-    "step2title": "Explore Our Services",
-    "step2desc": "Choose the service that fits your vision",
-    "step3title": "Fill Out the Form",
-    "step3desc": "We'll handle the rest"
+    "step1desc": "Tell us about your needs, your business and your goals. A first exchange (email, call or video) is enough to lay the groundwork and understand your vision.",
+    "step2title": "Choose Together",
+    "step2desc": "Select the service that fits your project: showcase site, e-commerce, SEO, branding. We provide a detailed quote and a realistic timeline.",
+    "step3title": "Launch",
+    "step3desc": "Fill out our form, validate the proposal, and we handle the rest. Regular updates, delivery on time, and support even after launch."
   },
   "forWho": {
     "title": "Who Is This For?",
-    "desc": "Our services are for anyone looking to digitize their business. Whether you're a hairdresser, plumber, startup founder, freelancer, or creative – we've got your back.",
+    "desc": "Our services are for anyone looking to digitize their business. Whether you're a hairdresser, plumber, restaurateur, startup founder, freelancer or creative — if you want a strong, professional online presence, we're here for you. We work with varied budgets and projects of all sizes, from simple showcase sites to full e-commerce stores.",
     "cta": "Discover Our Services"
   },
   "whyUs": {
     "title": "Why Zypta?",
-    "point1": "Built by a certified e-business professional",
-    "point2": "A wide range of services with unique designs",
-    "point3": "Proven experience in digital solutions",
-    "point4": "Simple, fast, and efficient process"
+    "point1": "Founded by a certified e-business graduate (EPHEC) with Scrum, Google Ads and Opquast certifications. Recognized expertise at the service of your project.",
+    "point2": "A wide range of services with unique designs. Each site is tailored to your business and audience, no generic templates.",
+    "point3": "Proven experience in digital solutions. Showcase sites, e-commerce, SEO and ad campaigns: we master the full chain.",
+    "point4": "A simple, fast and efficient process. Clear quotes, deadlines met, transparent communication. We move forward together, stress-free."
   },
   "finalCta": {
     "headline": "Ready to go digital?",
@@ -156,7 +173,7 @@
     "successSub": "We're on it! Our team is crafting your personalized preview. You'll receive it within 48 hours. Stay tuned!"
   },
   "cookies": {
-    "message": "We use cookies to improve your experience and analyze traffic. By continuing, you accept our use of cookies.",
+    "message": "We use essential cookies (language, consent). By continuing, you accept their use.",
     "link": "Privacy Policy",
     "accept": "Accept",
     "refuse": "Refuse"
@@ -167,7 +184,18 @@
     "collectTitle": "Data collection",
     "collectText": "We collect the data you provide through our contact and preview forms: name, email, phone, business name, project description, and optionally files (photo, logo). This data is sent by email to our team to process your request.",
     "cookiesTitle": "Cookies used",
-    "cookiesText": "Our site uses essential cookies for functionality (language preference, cookie consent). We do not use advertising or third-party tracking cookies. You can refuse non-essential cookies via our consent banner.",
+    "cookiesText": "Our site uses only essential cookies for functionality. We do not use advertising or third-party tracking cookies.",
+    "essentialCookiesTitle": "Essential cookies",
+    "essentialCookiesIntro": "The following cookies are required for the site to function and cannot be disabled:",
+    "essentialCookieName": "Name",
+    "essentialCookiePurpose": "Purpose",
+    "essentialCookieDuration": "Duration",
+    "essentialCookie1Name": "cookie-consent",
+    "essentialCookie1Purpose": "Stores your choice to accept or refuse cookies",
+    "essentialCookie1Duration": "1 year",
+    "essentialCookie2Name": "NEXT_LOCALE",
+    "essentialCookie2Purpose": "Stores your language preference (FR/EN)",
+    "essentialCookie2Duration": "1 year",
     "rightsTitle": "Your rights (GDPR)",
     "rightsText": "Under GDPR, you have the right to access, rectify, delete and object to your data. To exercise these rights, contact us at contact@zypta.be. We will process your request within 30 days.",
     "contactTitle": "Contact",
