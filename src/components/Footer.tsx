@@ -114,7 +114,13 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <p className="text-xs text-text-muted"><ZyptaText text={t('rights')} /></p>
+            <p className="text-xs text-text-muted">
+              <ZyptaText text={t('rights')} />
+              {' — '}
+              <Link href="/privacy" className="text-accent-primary/80 hover:text-accent-primary hover:underline transition-colors">
+                {t('privacy')}
+              </Link>
+            </p>
           </div>
         </div>
       </div>

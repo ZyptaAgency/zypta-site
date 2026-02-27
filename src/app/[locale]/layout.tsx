@@ -7,6 +7,7 @@ import localFont from 'next/font/local';
 import '../globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CookieBanner from '@/components/CookieBanner';
 import StarBackground from '@/components/StarBackground';
 
 const SITE_URL = 'https://zypta.be';
@@ -104,6 +105,7 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer />
+          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>

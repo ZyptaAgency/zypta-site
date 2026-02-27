@@ -4,7 +4,7 @@ const SITE_URL = 'https://zypta.be';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const locales = ['fr', 'en'];
-  const paths = ['', '/about', '/services', '/contact'];
+  const paths = ['', '/about', '/services', '/contact', '/privacy'];
 
   const urls: MetadataRoute.Sitemap = [
     { url: SITE_URL, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },

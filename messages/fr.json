@@ -155,10 +155,29 @@
     "successTitle": "Demande envoyée avec succès !",
     "successSub": "C'est noté ! Notre équipe prépare votre aperçu personnalisé. Vous le recevrez dans les 48h. Restez connecté !"
   },
+  "cookies": {
+    "message": "Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic. En continuant, vous acceptez notre utilisation des cookies.",
+    "link": "Politique de confidentialité",
+    "accept": "Accepter",
+    "refuse": "Refuser"
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "intro": "Zypta s'engage à protéger vos données personnelles. Cette politique explique comment nous collectons, utilisons et protégeons vos informations.",
+    "collectTitle": "Collecte des données",
+    "collectText": "Nous collectons les données que vous nous fournissez via nos formulaires de contact et d'aperçu : nom, email, téléphone, nom de votre activité, description de votre projet, et éventuellement des fichiers (photo, logo). Ces données sont transmises par email à notre équipe pour traiter votre demande.",
+    "cookiesTitle": "Cookies utilisés",
+    "cookiesText": "Notre site utilise des cookies essentiels au fonctionnement (préférence de langue, consentement cookies). Nous n'utilisons pas de cookies publicitaires ou de tracking tiers. Vous pouvez refuser les cookies non essentiels via notre bandeau de consentement.",
+    "rightsTitle": "Vos droits (RGPD)",
+    "rightsText": "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition à vos données. Pour exercer ces droits, contactez-nous à contact@zypta.be. Nous traiterons votre demande dans les 30 jours.",
+    "contactTitle": "Contact",
+    "contactText": "Pour toute question relative à vos données personnelles : contact@zypta.be"
+  },
   "footer": {
     "slogan": "Zip it. Type it. Launch it.",
     "hours": "Lundi – Vendredi, 11h – 20h",
     "paymentMethods": "Moyens de paiement acceptés :",
-    "rights": "© 2026 Zypta. Tous droits réservés."
+    "rights": "© 2026 Zypta. Tous droits réservés.",
+    "privacy": "Politique de confidentialité"
   }
 }
