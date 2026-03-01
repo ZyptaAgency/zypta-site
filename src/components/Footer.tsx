@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ExternalLink } from 'lucide-react';
 import Logo from './Logo';
 import LanguageSwitcher from './LanguageSwitcher';
 import ZyptaText from './ZyptaText';
@@ -21,6 +21,15 @@ export default function Footer() {
               <Logo src="/logo.png" width={120} height={120} />
             </Link>
             <p className="text-text-muted text-sm italic">{t('slogan')}</p>
+            <a
+              href="https://zyptabtp.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-[#2563EB] hover:text-[#3b82f6] transition-colors font-medium"
+            >
+              ZyptaBTP
+              <ExternalLink size={12} />
+            </a>
             <LanguageSwitcher />
           </div>
 

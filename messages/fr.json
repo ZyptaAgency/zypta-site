@@ -29,6 +29,7 @@
     "s2": "Boutiques e-commerce sur WordPress ou Shopify, faciles à gérer. Vendez en ligne avec un design professionnel et des outils adaptés à votre activité.",
     "s3": "SEO et campagnes Google Ads pour améliorer votre visibilité. Référencement naturel et publicité payante pour attirer des clients qualifiés.",
     "s4": "Création de logos et identité visuelle. Des designs uniques qui reflètent votre marque et vous démarquent de la concurrence.",
+    "s5": "ZyptaBTP — Le CRM conçu pour les artisans du bâtiment. Gérez vos clients, devis, factures et chantiers depuis une seule app. Pipeline visuel, génération PDF, estimateur IA et relances automatiques.",
     "cta": "Voir tous nos services"
   },
   "howItWorks": {
@@ -42,7 +43,7 @@
   },
   "forWho": {
     "title": "Pour qui ?",
-    "desc": "Nos services s'adressent à tous ceux qui veulent digitaliser leur activité. Que vous soyez coiffeur, plombier, restaurateur, fondateur de startup, freelance ou créatif — si vous voulez une présence en ligne forte et professionnelle, on est là pour vous. Nous travaillons avec des budgets variés et des projets de toutes tailles, du site vitrine simple à la boutique e-commerce complète.",
+    "desc": "Nos services s'adressent à tous ceux qui veulent digitaliser leur activité. Que vous soyez coiffeur, plombier, restaurateur, artisan du BTP, fondateur de startup, freelance ou créatif — si vous voulez une présence en ligne forte et professionnelle, on est là pour vous. Artisans du bâtiment ? Découvrez ZyptaBTP, notre CRM dédié pour gérer devis, factures et chantiers. Nous travaillons avec des budgets variés et des projets de toutes tailles, du site vitrine simple à la boutique e-commerce complète.",
     "cta": "Voir nos services"
   },
   "whyUs": {
@@ -68,6 +69,9 @@
     "s3desc": "Soyez trouvé en ligne. Améliorez votre visibilité, votre ranking et vos campagnes publicitaires.",
     "s4title": "Création de Logo & Branding",
     "s4desc": "Des logos uniques qui reflètent votre identité et attirent la bonne attention.",
+    "s5title": "ZyptaBTP — CRM Artisan",
+    "s5desc": "L'application tout-en-un pour les artisans du bâtiment. Gérez vos clients avec un pipeline CRM visuel (Kanban), créez des devis et factures professionnels en PDF, suivez vos chantiers, automatisez vos relances email et estimez vos travaux grâce à l'IA. Conçu pour le terrain, accessible sur mobile.",
+    "s5cta": "Découvrir ZyptaBTP →",
     "cta": "Nous contacter"
   },
   "about": {

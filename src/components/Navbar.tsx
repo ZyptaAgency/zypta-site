@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/routing';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ExternalLink } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Logo from './Logo';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -77,6 +77,15 @@ export default function Navbar() {
                 </Link>
               );
             })}
+            <a
+              href="https://zyptabtp.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 text-text-muted hover:text-text-white hover:bg-white/5 flex items-center gap-1.5"
+            >
+              ZyptaBTP
+              <ExternalLink size={12} className="opacity-50" />
+            </a>
           </nav>
 
           {/* Right side */}
@@ -141,6 +150,16 @@ export default function Navbar() {
                     </Link>
                   );
                 })}
+                <a
+                  href="https://zyptabtp.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 text-text-muted hover:text-text-white hover:bg-white/5 flex items-center gap-1.5"
+                >
+                  ZyptaBTP
+                  <ExternalLink size={12} className="opacity-50" />
+                </a>
               </nav>
               <div className="mt-4 pt-4 border-t border-white/5">
                 <p className="text-xs text-text-muted">contact@zypta.be</p>

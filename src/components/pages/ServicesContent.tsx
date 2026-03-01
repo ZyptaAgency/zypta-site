@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Link } from '@/i18n/routing';
-import { Globe, ShoppingCart, Search, Palette } from 'lucide-react';
+import { Globe, ShoppingCart, Search, Palette, HardHat, ExternalLink } from 'lucide-react';
 import AnimatedSection from '../AnimatedSection';
 
 const services = [
@@ -11,6 +11,7 @@ const services = [
   { icon: ShoppingCart, color: '#c84bff', titleKey: 's2title', descKey: 's2desc' },
   { icon: Search, color: '#00d4ff', titleKey: 's3title', descKey: 's3desc' },
   { icon: Palette, color: '#ff2d8f', titleKey: 's4title', descKey: 's4desc' },
+  { icon: HardHat, color: '#2563EB', titleKey: 's5title', descKey: 's5desc', external: true },
 ];
 
 export default function ServicesContent() {
@@ -36,10 +37,10 @@ export default function ServicesContent() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((svc, i) => (
-            <AnimatedSection key={svc.titleKey} delay={i * 0.1}>
+            <AnimatedSection key={svc.titleKey} delay={i * 0.1} className={svc.titleKey === 's5title' ? 'md:col-span-2 md:max-w-lg md:mx-auto w-full' : ''}>
               <motion.div
                 whileHover={{ scale: 1.02, y: -4 }}
-                className="glass-card p-8 h-full flex flex-col"
+                className={`glass-card p-8 h-full flex flex-col ${svc.external ? 'border border-[#2563EB]/20' : ''}`}
               >
                 <div
                   className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
@@ -56,9 +57,21 @@ export default function ServicesContent() {
                 <p className="text-text-muted text-sm flex-1 mb-6">
                   {t(svc.descKey)}
                 </p>
-                <Link href="/contact" className="btn-outline text-sm w-fit">
-                  {t('cta')}
-                </Link>
+                {svc.external ? (
+                  <a
+                    href="https://zyptabtp.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-outline text-sm w-fit inline-flex items-center gap-2"
+                  >
+                    {t('s5cta')}
+                    <ExternalLink size={14} />
+                  </a>
+                ) : (
+                  <Link href="/contact" className="btn-outline text-sm w-fit">
+                    {t('cta')}
+                  </Link>
+                )}
               </motion.div>
             </AnimatedSection>
           ))}

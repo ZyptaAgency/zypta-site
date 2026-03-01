@@ -3,12 +3,13 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Link } from '@/i18n/routing';
-import { Scissors, Wrench, Lightbulb, Briefcase } from 'lucide-react';
+import { Scissors, Wrench, Lightbulb, Briefcase, HardHat } from 'lucide-react';
 import AnimatedSection from '../AnimatedSection';
 
 const personas = [
   { icon: Scissors, color: '#ff6b35' },
   { icon: Wrench, color: '#c84bff' },
+  { icon: HardHat, color: '#2563EB' },
   { icon: Lightbulb, color: '#ff2d8f' },
   { icon: Briefcase, color: '#00d4ff' },
 ];

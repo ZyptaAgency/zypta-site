@@ -29,6 +29,7 @@
     "s2": "E-commerce stores on WordPress or Shopify, easy to manage. Sell online with a professional design and tools tailored to your business.",
     "s3": "SEO and Google Ads campaigns to boost your visibility. Natural search and paid advertising to attract qualified customers.",
     "s4": "Logo design and visual identity. Unique designs that reflect your brand and set you apart from the competition.",
+    "s5": "ZyptaBTP — The CRM built for construction tradespeople. Manage clients, quotes, invoices and job sites from a single app. Visual pipeline, PDF generation, AI estimator and automated follow-ups.",
     "cta": "View All Our Services"
   },
   "howItWorks": {
@@ -42,7 +43,7 @@
   },
   "forWho": {
     "title": "Who Is This For?",
-    "desc": "Our services are for anyone looking to digitize their business. Whether you're a hairdresser, plumber, restaurateur, startup founder, freelancer or creative — if you want a strong, professional online presence, we're here for you. We work with varied budgets and projects of all sizes, from simple showcase sites to full e-commerce stores.",
+    "desc": "Our services are for anyone looking to digitize their business. Whether you're a hairdresser, plumber, restaurateur, construction tradesperson, startup founder, freelancer or creative — if you want a strong, professional online presence, we're here for you. In the trades? Check out ZyptaBTP, our dedicated CRM for managing quotes, invoices and job sites. We work with varied budgets and projects of all sizes, from simple showcase sites to full e-commerce stores.",
     "cta": "Discover Our Services"
   },
   "whyUs": {
@@ -68,6 +69,9 @@
     "s3desc": "Get discovered online. Improve visibility, ranking, and paid ad strategies to boost traffic and leads.",
     "s4title": "Logo Creation & Branding",
     "s4desc": "Unique logos that reflect your identity and attract the right attention.",
+    "s5title": "ZyptaBTP — Trades CRM",
+    "s5desc": "The all-in-one app for construction tradespeople. Manage clients with a visual Kanban CRM pipeline, generate professional PDF quotes and invoices, track job sites, automate email follow-ups and estimate projects with AI. Built for the field, accessible on mobile.",
+    "s5cta": "Discover ZyptaBTP →",
     "cta": "Get in Touch"
   },
   "about": {
