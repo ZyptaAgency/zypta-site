@@ -3,15 +3,15 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Link } from '@/i18n/routing';
-import { Globe, ShoppingCart, Search, Palette, HardHat, ExternalLink } from 'lucide-react';
+import { Globe, ShoppingCart, Search, Palette, FileText, ExternalLink } from 'lucide-react';
 import AnimatedSection from '../AnimatedSection';
 
 const services = [
   { icon: Globe, color: '#ff6b35', titleKey: 's1title', descKey: 's1desc' },
+  { icon: FileText, color: '#2563EB', titleKey: 's5title', descKey: 's5desc', external: true },
   { icon: ShoppingCart, color: '#c84bff', titleKey: 's2title', descKey: 's2desc' },
   { icon: Search, color: '#00d4ff', titleKey: 's3title', descKey: 's3desc' },
   { icon: Palette, color: '#ff2d8f', titleKey: 's4title', descKey: 's4desc' },
-  { icon: HardHat, color: '#2563EB', titleKey: 's5title', descKey: 's5desc', external: true },
 ];
 
 export default function ServicesContent() {
@@ -37,7 +37,7 @@ export default function ServicesContent() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((svc, i) => (
-            <AnimatedSection key={svc.titleKey} delay={i * 0.1} className={svc.titleKey === 's5title' ? 'md:col-span-2 md:max-w-lg md:mx-auto w-full' : ''}>
+            <AnimatedSection key={svc.titleKey} delay={i * 0.1}>
               <motion.div
                 whileHover={{ scale: 1.02, y: -4 }}
                 className={`glass-card p-8 h-full flex flex-col ${svc.external ? 'border border-[#2563EB]/20' : ''}`}

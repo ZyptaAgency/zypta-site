@@ -1,16 +1,16 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Globe, ShoppingCart, Search, Palette, HardHat } from 'lucide-react';
+import { Globe, ShoppingCart, Search, Palette, FileText } from 'lucide-react';
 import AnimatedSection from '../AnimatedSection';
 import { Link } from '@/i18n/routing';
 
 const services = [
   { icon: Globe, key: 's1', color: '#ff6b35' },
+  { icon: FileText, key: 's5', color: '#2563EB', external: true },
   { icon: ShoppingCart, key: 's2', color: '#c84bff' },
   { icon: Search, key: 's3', color: '#00d4ff' },
   { icon: Palette, key: 's4', color: '#ff2d8f' },
-  { icon: HardHat, key: 's5', color: '#2563EB', external: true },
 ];
 
 export default function HomeServices() {
@@ -26,7 +26,7 @@ export default function HomeServices() {
         </AnimatedSection>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((s, i) => (
-            <AnimatedSection key={s.key} delay={i * 0.08} className={s.key === 's5' ? 'md:col-span-2 md:max-w-xl md:mx-auto w-full' : ''}>
+            <AnimatedSection key={s.key} delay={i * 0.08}>
               {s.external ? (
                 <a
                   href="https://zyptabtp.app"
