@@ -30,7 +30,9 @@ export default function Footer() {
               ZyptaBTP
               <ExternalLink size={12} />
             </a>
-            <LanguageSwitcher />
+            <div className="w-fit">
+              <LanguageSwitcher />
+            </div>
           </div>
 
           {/* Contact Info */}

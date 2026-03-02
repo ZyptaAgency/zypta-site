@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Link } from '@/i18n/routing';
+import { ExternalLink } from 'lucide-react';
 import AnimatedSection from '../AnimatedSection';
 import { useEffect, useState } from 'react';
 
@@ -43,9 +44,20 @@ export default function FinalCta() {
           </p>
         </AnimatedSection>
         <AnimatedSection delay={0.3}>
-          <Link href="/contact" className="btn-primary text-base">
-            {t('cta')}
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/contact" className="btn-primary text-base">
+              {t('cta')}
+            </Link>
+            <a
+              href="https://zyptabtp.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium border border-[#2563EB]/30 text-[#60a5fa] hover:border-[#2563EB]/60 hover:text-white transition-all"
+            >
+              ZyptaBTP
+              <ExternalLink size={14} />
+            </a>
+          </div>
         </AnimatedSection>
       </div>
     </section>
