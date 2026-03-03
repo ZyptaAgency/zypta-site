@@ -12,7 +12,7 @@ import FinalCta from '@/components/home/FinalCta';
 export async function generateMetadata({ params }: { params: { locale: string } }) {
   const t = await getTranslations({ locale: params.locale, namespace: 'seo' });
   return {
-    title: t('homeTitle'),
+    title: { absolute: t('homeTitle') },
     description: t('homeDescription'),
   };
 }
