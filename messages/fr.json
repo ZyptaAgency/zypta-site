@@ -206,7 +206,9 @@
     "contactText": "Pour toute question relative à vos données personnelles : contact@zypta.be"
   },
   "footer": {
-    "slogan": "Zip. Build. Launch.",
+    "slogan1": "Zip.",
+    "slogan2": "Build.",
+    "slogan3": "Launch.",
     "hours": "Lundi – Vendredi, 11h – 20h",
     "paymentMethods": "Moyens de paiement acceptés :",
     "rights": "© 2026 Zypta. Tous droits réservés.",

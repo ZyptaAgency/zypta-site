@@ -17,10 +17,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
           {/* Brand */}
           <div className="space-y-4">
-            <Link href="/" className="block">
-              <Logo src="/logo.png" width={120} height={120} />
+            <Link href="/" className="flex items-center gap-3">
+              <Logo src="/icon.png" width={56} height={56} />
+              <span className="font-ethno text-2xl md:text-3xl gradient-text tracking-wider leading-none">
+                ZYPTA
+              </span>
             </Link>
-            <p className="text-text-muted text-sm italic">{t('slogan')}</p>
+            <div className="flex flex-col items-start gap-0.5 font-ethno text-sm md:text-base tracking-wider leading-tight">
+              <span className="block gradient-text">{t('slogan1')}</span>
+              <span className="block gradient-text">{t('slogan2')}</span>
+              <span className="block gradient-text">{t('slogan3')}</span>
+            </div>
             <a
               href="https://zyptabtp.app"
               target="_blank"
