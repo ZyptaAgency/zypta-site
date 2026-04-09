@@ -218,7 +218,7 @@ export default function Navbar() {
                       href={item.href}
                       isPricing={item.key === 'pricing'}
                       onClick={() => setMobileOpen(false)}
-                      className="flex items-center justify-center min-h-[56px] py-3 text-center font-display text-[clamp(1.75rem,8vw,2.75rem)] font-medium leading-tight tracking-tight gradient-text touch-manipulation"
+                      className="flex items-center justify-center min-h-[56px] py-3 text-center font-display text-[clamp(1.75rem,8vw,2.75rem)] font-medium leading-tight tracking-tight text-text-white/75 hover:text-text-white active:text-text-white transition-colors touch-manipulation"
                     >
                       {t(item.key)}
                     </PricingNavLink>
@@ -236,7 +236,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center gap-2 min-h-[56px] py-3 text-center font-display text-[clamp(1.75rem,8vw,2.75rem)] font-medium leading-tight tracking-tight gradient-text touch-manipulation"
+                  className="flex items-center justify-center gap-2 min-h-[56px] py-3 text-center font-display text-[clamp(1.75rem,8vw,2.75rem)] font-medium leading-tight tracking-tight text-text-white/75 hover:text-text-white active:text-text-white transition-colors touch-manipulation"
                 >
                   ZyptaBTP
                   <ExternalLink size={18} className="opacity-45 shrink-0" strokeWidth={1.75} />
