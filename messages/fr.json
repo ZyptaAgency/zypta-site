@@ -2,6 +2,7 @@
   "nav": {
     "home": "Accueil",
     "services": "Services",
+    "pricing": "Tarifs",
     "about": "À propos",
     "contact": "Contact"
   },
@@ -210,8 +211,192 @@
     "slogan2": "Build.",
     "slogan3": "Launch.",
     "hours": "Lundi – Vendredi, 11h – 20h",
-    "paymentMethods": "Moyens de paiement acceptés :",
+    "paymentMethods": "Paiement via PayPal :",
     "rights": "© 2026 Zypta. Tous droits réservés.",
     "privacy": "Politique de confidentialité"
+  },
+  "pricing": {
+    "eyebrow": "Tarifs transparents",
+    "title": "Trois formules.",
+    "titleAccent": "Zéro surprise.",
+    "intro": "Choisissez la formule qui correspond à votre projet. Chaque site est conçu sur mesure, pensé pour votre métier, et livré dans les délais. Pas de jargon, pas de frais cachés.",
+    "paymentLine": "Paiement sécurisé via PayPal",
+    "examplesOne": "Voir un exemple",
+    "examplesMany": "Nos exemples",
+    "addonsTitle": "Besoin de plus ? Ajoutez ce qu'il vous faut.",
+    "addonsIntro": "Chaque formule peut être enrichie avec des options à la carte. Cliquez sur une option pour l'ajouter à votre devis.",
+    "addonCta": "Ajouter à mon devis",
+    "faqTitle": "Questions fréquentes sur nos tarifs",
+    "finalTitle": "Une question ? Un projet hors cadre ?",
+    "finalSub": "Parlons-en directement. Premier échange gratuit, sans engagement.",
+    "finalCtaContact": "Lancer mon projet",
+    "finalCtaWhatsapp": "Discuter sur WhatsApp",
+    "plans": [
+      {
+        "id": "essentiel",
+        "name": "Essentiel",
+        "tagline": "Votre présence en ligne, simple et efficace.",
+        "price": "890",
+        "priceNote": "TVAC · paiement unique",
+        "cta": "Lancer mon site",
+        "ctaQuery": "formule=essentiel",
+        "highlighted": false,
+        "badge": null,
+        "features": [
+          "Site vitrine multi-pages (jusqu'à 5 pages)",
+          "Design responsive mobile-first",
+          "Développement HTML / CSS / JS optimisé",
+          "Formulaire de contact",
+          "SEO de base (balises, sitemap, meta)",
+          "Bannière cookies RGPD",
+          "Hébergement offert la 1ʳᵉ année",
+          "Nom de domaine offert la 1ʳᵉ année",
+          "Livraison en 7 jours"
+        ],
+        "examples": [
+          {
+            "name": "depan.be",
+            "desc": "Dépannage plomberie & électricité, Bruxelles",
+            "href": "https://depan-be.vercel.app"
+          }
+        ]
+      },
+      {
+        "id": "pro",
+        "name": "Pro",
+        "tagline": "Un site qui marque les esprits.",
+        "price": "1 490",
+        "priceNote": "TVAC · paiement unique",
+        "cta": "Je veux ce site",
+        "ctaQuery": "formule=pro",
+        "highlighted": true,
+        "badge": "Le plus populaire",
+        "features": [
+          "Tout ce qui est inclus dans Essentiel",
+          "Développement Next.js + React",
+          "Design sur mesure avec identité visuelle dédiée",
+          "Animations fluides (Framer Motion)",
+          "Jusqu'à 6 pages routées",
+          "Micro-interactions et transitions",
+          "SEO avancé + Google Search Console",
+          "Optimisation performance (Lighthouse 90+)",
+          "Intégration Google Avis",
+          "1 mois de support post-livraison inclus"
+        ],
+        "examples": [
+          {
+            "name": "Bel Coiffure",
+            "desc": "Barbershop, Woluwe-Saint-Lambert",
+            "href": "https://bel-coiffure.vercel.app"
+          },
+          {
+            "name": "Coiffure Cristina",
+            "desc": "Salon, Neuchâtel",
+            "href": "https://coiffure-cristina.vercel.app"
+          }
+        ]
+      },
+      {
+        "id": "signature",
+        "name": "Signature",
+        "tagline": "L'expérience premium, pilotée par vous.",
+        "price": "3 490",
+        "priceNote": "TVAC · paiement unique · à partir de",
+        "cta": "Discutons-en",
+        "ctaQuery": "formule=signature",
+        "highlighted": false,
+        "badge": null,
+        "features": [
+          "Tout ce qui est inclus dans Pro",
+          "Backend sur mesure (Next.js API / Node)",
+          "Base de données PostgreSQL (Neon / Supabase)",
+          "Authentification sécurisée (NextAuth)",
+          "Tableau de bord privé avec statistiques en temps réel",
+          "Gestion de contenu autonome depuis le dashboard",
+          "Direction artistique complète",
+          "Animations avancées (GSAP, scroll-based, glassmorphism)",
+          "Optimisation Lighthouse 95+",
+          "Intégrations tierces (booking, newsletter, analytics)",
+          "3 mois de support + 1 session de retouches offerte"
+        ],
+        "examples": [
+          {
+            "name": "EE Studio",
+            "desc": "Studio créatif, Kinshasa",
+            "href": "https://ee-studio.vercel.app"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "icon": "FileText",
+        "label": "Rédaction de contenu",
+        "price": "+ 290 €",
+        "description": "Textes professionnels pour vos pages : accroches, services, à propos. Ton adapté à votre marque, optimisé SEO.",
+        "slug": "redaction"
+      },
+      {
+        "icon": "Globe",
+        "label": "Site multilingue",
+        "price": "+ 390 €",
+        "description": "Votre site traduit en FR / NL / EN avec routing automatique. Idéal pour toucher une clientèle bruxelloise et internationale.",
+        "slug": "multilingue"
+      },
+      {
+        "icon": "FileText",
+        "label": "Blog / CMS headless",
+        "price": "+ 490 €",
+        "description": "Ajoutez un blog éditable depuis un back-office simple. Parfait pour le SEO long terme et partager votre expertise.",
+        "slug": "blog"
+      },
+      {
+        "icon": "Calendar",
+        "label": "Réservation intégrée",
+        "price": "+ 590 €",
+        "description": "Système de prise de rendez-vous en ligne synchronisé à votre agenda. Vos clients réservent directement depuis votre site.",
+        "slug": "reservation"
+      },
+      {
+        "icon": "Palette",
+        "label": "Logo & identité visuelle",
+        "price": "+ 390 €",
+        "description": "Logo sur mesure, palette de couleurs, typographies et charte graphique. Une identité cohérente sur tous vos supports.",
+        "slug": "branding"
+      },
+      {
+        "icon": "Wrench",
+        "label": "Maintenance mensuelle",
+        "price": "49 €/mois",
+        "description": "Mises à jour, sauvegardes, corrections, petites modifications de contenu. On s'occupe de tout, vous êtes tranquille.",
+        "slug": "maintenance"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Les prix affichés sont-ils définitifs ?",
+        "a": "Oui. Le prix indiqué est le prix que vous payez, TVAC. Aucun frais caché. Si votre projet sort du cadre de la formule, nous vous le disons clairement avant de commencer, avec un devis détaillé."
+      },
+      {
+        "q": "Comment se passe le paiement ?",
+        "a": "30 % à la signature du devis pour lancer le projet, le solde à la livraison. Paiement sécurisé via PayPal uniquement."
+      },
+      {
+        "q": "Combien de temps pour livrer mon site ?",
+        "a": "Essentiel : environ 7 jours. Pro : 2 à 3 semaines. Signature : 4 à 6 semaines selon le scope. Les délais sont convenus ensemble dès le départ."
+      },
+      {
+        "q": "Le nom de domaine et l'hébergement sont-ils inclus ?",
+        "a": "Oui, la première année est offerte pour les formules Essentiel et Pro. Ensuite, comptez environ 15 à 30 €/an pour le domaine et l'hébergement reste gratuit sur Vercel."
+      },
+      {
+        "q": "Puis-je modifier mon site moi-même après la livraison ?",
+        "a": "Avec les formules Essentiel et Pro, les modifications se font via nous (tarif horaire ou maintenance mensuelle). Avec Signature, vous disposez d'un tableau de bord pour tout gérer en autonomie."
+      },
+      {
+        "q": "Et si mon projet ne rentre dans aucune formule ?",
+        "a": "Aucun problème — contactez-nous et on construit un devis sur mesure adapté à votre vision et votre budget."
+      }
+    ]
   }
 }

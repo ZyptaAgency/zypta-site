@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "services": "Services",
+    "pricing": "Pricing",
     "about": "About Us",
     "contact": "Contact"
   },
@@ -210,8 +211,192 @@
     "slogan2": "Build.",
     "slogan3": "Launch.",
     "hours": "Monday to Friday, 11 AM – 8 PM",
-    "paymentMethods": "Accepted payment methods:",
+    "paymentMethods": "Payment via PayPal:",
     "rights": "© 2026 Zypta. All rights reserved.",
     "privacy": "Privacy Policy"
+  },
+  "pricing": {
+    "eyebrow": "Transparent pricing",
+    "title": "Three plans.",
+    "titleAccent": "Zero surprises.",
+    "intro": "Pick the plan that fits your project. Every site is tailor-made for your business and delivered on time. No jargon, no hidden fees.",
+    "paymentLine": "Secure payment via PayPal",
+    "examplesOne": "See an example",
+    "examplesMany": "Our examples",
+    "addonsTitle": "Need more? Add what you need.",
+    "addonsIntro": "Each plan can be extended with à la carte options. Click an option to add it to your quote.",
+    "addonCta": "Add to my quote",
+    "faqTitle": "Frequently asked questions",
+    "finalTitle": "A question? A project outside the box?",
+    "finalSub": "Let's talk directly. First call is free, no obligation.",
+    "finalCtaContact": "Start my project",
+    "finalCtaWhatsapp": "Chat on WhatsApp",
+    "plans": [
+      {
+        "id": "essentiel",
+        "name": "Essential",
+        "tagline": "Your online presence, simple and effective.",
+        "price": "890",
+        "priceNote": "VAT incl. · one-time payment",
+        "cta": "Launch my site",
+        "ctaQuery": "formule=essentiel",
+        "highlighted": false,
+        "badge": null,
+        "features": [
+          "Multi-page showcase site (up to 5 pages)",
+          "Mobile-first responsive design",
+          "Optimized HTML / CSS / JS development",
+          "Contact form",
+          "Basic SEO (tags, sitemap, meta)",
+          "GDPR cookie banner",
+          "Hosting included 1st year",
+          "Domain name included 1st year",
+          "Delivery in 7 days"
+        ],
+        "examples": [
+          {
+            "name": "depan.be",
+            "desc": "Plumbing & electrical repairs, Brussels",
+            "href": "https://depan-be.vercel.app"
+          }
+        ]
+      },
+      {
+        "id": "pro",
+        "name": "Pro",
+        "tagline": "A site that stands out.",
+        "price": "1 490",
+        "priceNote": "VAT incl. · one-time payment",
+        "cta": "I want this site",
+        "ctaQuery": "formule=pro",
+        "highlighted": true,
+        "badge": "Most popular",
+        "features": [
+          "Everything in Essential",
+          "Next.js + React development",
+          "Custom design with dedicated visual identity",
+          "Smooth animations (Framer Motion)",
+          "Up to 6 routed pages",
+          "Micro-interactions and transitions",
+          "Advanced SEO + Google Search Console",
+          "Performance tuning (Lighthouse 90+)",
+          "Google Reviews integration",
+          "1 month post-launch support included"
+        ],
+        "examples": [
+          {
+            "name": "Bel Coiffure",
+            "desc": "Barbershop, Woluwe-Saint-Lambert",
+            "href": "https://bel-coiffure.vercel.app"
+          },
+          {
+            "name": "Coiffure Cristina",
+            "desc": "Salon, Neuchâtel",
+            "href": "https://coiffure-cristina.vercel.app"
+          }
+        ]
+      },
+      {
+        "id": "signature",
+        "name": "Signature",
+        "tagline": "The premium experience, driven by you.",
+        "price": "3 490",
+        "priceNote": "VAT incl. · one-time · from",
+        "cta": "Let's talk",
+        "ctaQuery": "formule=signature",
+        "highlighted": false,
+        "badge": null,
+        "features": [
+          "Everything in Pro",
+          "Custom backend (Next.js API / Node)",
+          "PostgreSQL database (Neon / Supabase)",
+          "Secure authentication (NextAuth)",
+          "Private dashboard with real-time stats",
+          "Self-service content management",
+          "Full art direction",
+          "Advanced animations (GSAP, scroll, glassmorphism)",
+          "Lighthouse 95+ optimization",
+          "Third-party integrations (booking, newsletter, analytics)",
+          "3 months support + 1 revision session"
+        ],
+        "examples": [
+          {
+            "name": "EE Studio",
+            "desc": "Creative studio, Kinshasa",
+            "href": "https://ee-studio.vercel.app"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "icon": "FileText",
+        "label": "Copywriting",
+        "price": "+ €290",
+        "description": "Professional copy for your pages: hooks, services, about. Tone matched to your brand, SEO-friendly.",
+        "slug": "redaction"
+      },
+      {
+        "icon": "Globe",
+        "label": "Multilingual site",
+        "price": "+ €390",
+        "description": "Your site in FR / NL / EN with automatic routing. Ideal for Brussels and international clients.",
+        "slug": "multilingue"
+      },
+      {
+        "icon": "FileText",
+        "label": "Blog / headless CMS",
+        "price": "+ €490",
+        "description": "An editable blog from a simple back office. Great for long-term SEO and sharing expertise.",
+        "slug": "blog"
+      },
+      {
+        "icon": "Calendar",
+        "label": "Booking integration",
+        "price": "+ €590",
+        "description": "Online appointment booking synced with your calendar. Clients book straight from your site.",
+        "slug": "reservation"
+      },
+      {
+        "icon": "Palette",
+        "label": "Logo & visual identity",
+        "price": "+ €390",
+        "description": "Custom logo, colour palette, typography and brand guidelines. Consistent identity everywhere.",
+        "slug": "branding"
+      },
+      {
+        "icon": "Wrench",
+        "label": "Monthly maintenance",
+        "price": "€49/mo",
+        "description": "Updates, backups, fixes, small content tweaks. We handle it—you relax.",
+        "slug": "maintenance"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Are the prices final?",
+        "a": "Yes. The price shown is what you pay, VAT included. No hidden fees. If your project goes beyond the plan, we tell you upfront with a detailed quote."
+      },
+      {
+        "q": "How does payment work?",
+        "a": "30% when you sign off the quote to start, balance on delivery. Secure payment via PayPal only."
+      },
+      {
+        "q": "How long until my site is live?",
+        "a": "Essential: about 7 days. Pro: 2–3 weeks. Signature: 4–6 weeks depending on scope. Timelines are agreed together from day one."
+      },
+      {
+        "q": "Are domain and hosting included?",
+        "a": "Yes, the first year is included for Essential and Pro. After that, expect roughly €15–30/year for the domain; hosting stays free on Vercel."
+      },
+      {
+        "q": "Can I edit the site myself later?",
+        "a": "On Essential and Pro, changes go through us (hourly rate or monthly maintenance). On Signature, you get a dashboard to manage everything yourself."
+      },
+      {
+        "q": "What if none of the plans fit?",
+        "a": "No problem—contact us and we will build a custom quote for your vision and budget."
+      }
+    ]
   }
 }

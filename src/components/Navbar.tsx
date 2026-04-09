@@ -11,6 +11,7 @@ import LanguageSwitcher from './LanguageSwitcher';
 const navItems = [
   { key: 'home', href: '/' as const },
   { key: 'services', href: '/services' as const },
+  { key: 'pricing', href: '/pricing' as const },
   { key: 'about', href: '/about' as const },
   { key: 'contact', href: '/contact' as const },
 ];

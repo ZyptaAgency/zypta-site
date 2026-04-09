@@ -120,16 +120,8 @@ export default function Footer() {
           <div className="flex flex-col items-center gap-6">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
               <span className="text-xs text-text-muted">{t('paymentMethods')}</span>
-              <div className="flex items-center gap-3">
-                <div className="h-9 px-4 flex items-center rounded-lg bg-white shadow-sm">
-                  <img src="/logos/visa.svg" alt="Visa" className="h-5 w-auto" />
-                </div>
-                <div className="h-9 px-4 flex items-center rounded-lg bg-white shadow-sm">
-                  <img src="/logos/bancontact.svg" alt="Bancontact" className="h-5 w-auto" />
-                </div>
-                <div className="h-9 px-4 flex items-center rounded-lg bg-white shadow-sm">
-                  <img src="/logos/paypal.svg" alt="PayPal" className="h-5 w-auto" />
-                </div>
+              <div className="h-9 px-4 flex items-center rounded-lg bg-white shadow-sm">
+                <img src="/logos/paypal.svg" alt="PayPal" className="h-5 w-auto" />
               </div>
             </div>
             <p className="text-xs text-text-muted">
