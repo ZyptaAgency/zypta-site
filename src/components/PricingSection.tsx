@@ -1,9 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from '@/i18n/routing';
+import WhatsAppCtaLink from '@/components/WhatsAppCtaLink';
+import { readStoredFormule, writeStoredFormule } from '@/lib/pricing-prefs';
 import {
   Check,
   ArrowRight,
@@ -15,7 +17,6 @@ import {
   Calendar,
   Palette,
   Wrench,
-  MessageCircle,
   Plus,
 } from 'lucide-react';
 
@@ -56,11 +57,22 @@ type FaqRaw = { q: string; a: string };
 
 export default function PricingSection() {
   const t = useTranslations('pricing');
+  const tc = useTranslations('contact');
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [selectedPlanId, setSelectedPlanId] = useState<string | null>(null);
 
-  const plans = t.raw('plans') as PlanRaw[];
-  const addons = t.raw('addons') as AddonRaw[];
-  const faqs = t.raw('faq') as FaqRaw[];
+  const plans = useMemo(() => t.raw('plans') as PlanRaw[], [t]);
+  const addons = useMemo(() => t.raw('addons') as AddonRaw[], [t]);
+  const faqs = useMemo(() => t.raw('faq') as FaqRaw[], [t]);
+
+  useEffect(() => {
+    const stored = readStoredFormule();
+    if (stored && plans.some((p) => p.id === stored)) {
+      setSelectedPlanId(stored);
+    }
+  }, [plans]);
+
+  const selectedPlanName = plans.find((p) => p.id === selectedPlanId)?.name ?? '';
 
   return (
     <section id="tarifs" className="relative z-10 w-full py-20 md:py-28 px-6 overflow-hidden">
@@ -100,7 +112,7 @@ export default function PricingSection() {
                 plan.highlighted
                   ? 'glass-card border-accent-primary/50 shadow-[0_0_50px_rgba(200,75,255,0.2)] lg:scale-[1.02] lg:-my-1'
                   : 'glass-card hover:border-white/20'
-              }`}
+              } ${selectedPlanId === plan.id ? 'ring-2 ring-accent-primary/45' : ''}`}
             >
               {plan.highlighted && plan.badge && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -127,13 +139,29 @@ export default function PricingSection() {
                 <p className="text-xs text-text-muted mt-1">{plan.priceNote}</p>
               </div>
 
-              <div className="flex items-center gap-1.5 text-xs text-text-muted mb-6">
+              <div className="flex items-center gap-1.5 text-xs text-text-muted mb-4">
                 <Lock className="w-3.5 h-3.5 shrink-0 text-accent-primary" />
                 <span>{t('paymentLine')}</span>
               </div>
 
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedPlanId(plan.id);
+                  writeStoredFormule(plan.id);
+                }}
+                className={`mb-4 w-full py-2.5 px-3 rounded-xl text-xs font-semibold transition-all border ${
+                  selectedPlanId === plan.id
+                    ? 'bg-accent-primary/15 text-accent-primary border-accent-primary/45 shadow-[0_0_20px_rgba(200,75,255,0.15)]'
+                    : 'bg-white/[0.04] text-text-muted border-white/10 hover:border-white/20 hover:text-text-white'
+                }`}
+              >
+                {selectedPlanId === plan.id ? t('planSelectedCta') : t('selectPlanCta')}
+              </button>
+
               <Link
-                href={`/contact?${plan.ctaQuery}`}
+                href={`/contact?${plan.ctaQuery}#devis`}
+                onClick={() => writeStoredFormule(plan.id)}
                 className={`group/cta flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl font-semibold text-sm transition-all mb-8 ${
                   plan.highlighted ? 'btn-primary' : 'btn-outline'
                 }`}
@@ -190,18 +218,40 @@ export default function PricingSection() {
           transition={{ duration: 0.6 }}
           className="mb-20 md:mb-28"
         >
-          <div className="text-center mb-10">
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-text-white mb-3">{t('addonsTitle')}</h3>
-            <p className="text-text-muted max-w-2xl mx-auto">{t('addonsIntro')}</p>
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-center sm:gap-6 mb-4">
+              <div className="flex-1 max-w-2xl mx-auto">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-text-white mb-3">{t('addonsTitle')}</h3>
+                <p className="text-text-muted">{t('addonsIntro')}</p>
+              </div>
+              {selectedPlanId ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedPlanId(null);
+                    writeStoredFormule(null);
+                  }}
+                  className="shrink-0 text-xs text-text-muted hover:text-text-white underline underline-offset-4 mt-2 sm:mt-10"
+                >
+                  {t('clearPlanSelection')}
+                </button>
+              ) : null}
+            </div>
+            {selectedPlanId ? (
+              <p className="text-sm text-accent-primary/90 font-medium mb-6">{t('addonsLinkedHint', { plan: selectedPlanName })}</p>
+            ) : null}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {addons.map((addon, i) => {
               const Icon = iconMap[addon.icon] ?? FileText;
+              const addonHref = selectedPlanId
+                ? `/contact?formule=${selectedPlanId}&option=${addon.slug}#devis`
+                : `/contact?option=${addon.slug}#devis`;
               return (
                 <motion.div key={addon.slug} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.04 }}>
                   <Link
-                    href={`/contact?option=${addon.slug}`}
+                    href={addonHref}
                     className="group flex flex-col h-full p-6 rounded-2xl glass-card hover:border-accent-primary/40 hover:shadow-[0_0_30px_rgba(200,75,255,0.12)] transition-all cursor-pointer"
                   >
                     <div className="flex items-start justify-between gap-3 mb-3">
@@ -283,20 +333,16 @@ export default function PricingSection() {
           <div className="relative">
             <h3 className="font-display text-3xl sm:text-4xl font-bold gradient-text mb-4">{t('finalTitle')}</h3>
             <p className="text-text-muted text-lg mb-8 max-w-xl mx-auto">{t('finalSub')}</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link href="/contact" className="group inline-flex items-center gap-2 btn-primary text-sm">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+              <Link
+                href={selectedPlanId ? `/contact?formule=${selectedPlanId}#devis` : '/contact#devis'}
+                onClick={() => selectedPlanId && writeStoredFormule(selectedPlanId)}
+                className="group inline-flex items-center gap-2 btn-primary text-sm"
+              >
                 {t('finalCtaContact')}
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <a
-                href="https://wa.me/32487102928"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/20 text-text-white font-semibold text-sm hover:bg-white/5 transition-all"
-              >
-                <MessageCircle className="w-4 h-4" />
-                {t('finalCtaWhatsapp')}
-              </a>
+              <WhatsAppCtaLink title={t('finalCtaWhatsapp')} subtitle={tc('whatsappAction')} />
             </div>
           </div>
         </motion.div>

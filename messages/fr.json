@@ -127,7 +127,7 @@
   },
   "contact": {
     "headline": "Parlons de votre projet.",
-    "sub": "On est à un message de lancer votre présence digitale.",
+    "sub": "Demandez un aperçu gratuit, composez votre devis en ligne (formule + options), ou écrivez-nous directement.",
     "name": "Nom complet",
     "email": "Adresse email",
     "subject": "Sujet",
@@ -148,7 +148,23 @@
     "instaAction": "Réponse rapide via DM",
     "emailCta": "Envoyez-nous un email",
     "emailAction": "On vous répond sous 24h",
-    "quickResponse": "Vous souhaitez une réponse plus rapidement ?"
+    "quickResponse": "Vous souhaitez une réponse plus rapidement ?",
+    "quoteTitle": "Composer votre devis",
+    "quoteSub": "Choisissez une formule et cochez les options souhaitées. Nous vous renvoyons un devis détaillé sous 24–48 h.",
+    "quotePlanLabel": "Formule",
+    "quotePlanEmpty": "Sélectionnez une formule",
+    "quotePlanRequired": "Choisissez une des trois formules.",
+    "quoteAddonsLabel": "Options supplémentaires",
+    "quoteNotesPlaceholder": "Délais, références, contraintes… (facultatif)",
+    "quoteEstimate": "Estimation indicative",
+    "quoteEstimateHint": "Total hors abonnement récurrent. Sous réserve de validation du périmètre après échange.",
+    "quoteSubmit": "Envoyer ma demande de devis",
+    "quoteSuccessTitle": "Demande de devis envoyée !",
+    "quoteSuccessSub": "Nous avons bien reçu votre sélection. Vous recevrez une proposition personnalisée très vite.",
+    "quotePhone": "Téléphone (facultatif)",
+    "quotePerMonth": "/mois",
+    "quoteCopyLink": "Copier le lien de ce devis",
+    "quoteCopied": "Lien copié"
   },
   "preview": {
     "title": "Demandez un aperçu gratuit",
@@ -187,7 +203,7 @@
     "title": "Politique de confidentialité",
     "intro": "Zypta s'engage à protéger vos données personnelles. Cette politique explique comment nous collectons, utilisons et protégeons vos informations.",
     "collectTitle": "Collecte des données",
-    "collectText": "Nous collectons les données que vous nous fournissez via nos formulaires de contact et d'aperçu : nom, email, téléphone, nom de votre activité, description de votre projet, et éventuellement des fichiers (photo, logo). Ces données sont transmises par email à notre équipe pour traiter votre demande.",
+    "collectText": "Nous collectons les données que vous nous fournissez via nos formulaires de contact, d'aperçu et de demande de devis : nom, email, téléphone, formule et options choisies, description de votre projet, et éventuellement des fichiers (photo, logo). Ces données sont transmises par email à notre équipe pour traiter votre demande. Sur la page tarifs, une formule peut être mémorisée temporairement dans votre navigateur (session) pour préremplir le devis ; elle n'est pas envoyée tant que vous n'envoyez pas le formulaire.",
     "cookiesTitle": "Cookies utilisés",
     "cookiesText": "Notre site utilise uniquement des cookies essentiels au fonctionnement. Nous n'utilisons pas de cookies publicitaires ou de tracking tiers.",
     "essentialCookiesTitle": "Cookies essentiels",
@@ -224,8 +240,12 @@
     "examplesOne": "Voir un exemple",
     "examplesMany": "Nos exemples",
     "addonsTitle": "Besoin de plus ? Ajoutez ce qu'il vous faut.",
-    "addonsIntro": "Chaque formule peut être enrichie avec des options à la carte. Cliquez sur une option pour l'ajouter à votre devis.",
+    "addonsIntro": "Chaque formule peut être enrichie avec des options à la carte. Choisissez d'abord une formule ci-dessus si vous voulez qu'elle soit présélectionnée avec chaque option.",
     "addonCta": "Ajouter à mon devis",
+    "selectPlanCta": "Choisir pour les options",
+    "planSelectedCta": "Formule sélectionnée",
+    "addonsLinkedHint": "Les options ouvrent le devis avec la formule « {plan} ».",
+    "clearPlanSelection": "Effacer le choix de formule",
     "faqTitle": "Questions fréquentes sur nos tarifs",
     "finalTitle": "Une question ? Un projet hors cadre ?",
     "finalSub": "Parlons-en directement. Premier échange gratuit, sans engagement.",
@@ -249,8 +269,8 @@
           "Formulaire de contact",
           "SEO de base (balises, sitemap, meta)",
           "Bannière cookies RGPD",
-          "Hébergement offert la 1ʳᵉ année",
-          "Nom de domaine offert la 1ʳᵉ année",
+          "Nom de domaine et hébergement non inclus (à votre charge)",
+          "Conseils et aide à la configuration pour la mise en ligne",
           "Livraison en 7 jours"
         ],
         "examples": [
@@ -387,7 +407,7 @@
       },
       {
         "q": "Le nom de domaine et l'hébergement sont-ils inclus ?",
-        "a": "Oui, la première année est offerte pour les formules Essentiel et Pro. Ensuite, comptez environ 15 à 30 €/an pour le domaine et l'hébergement reste gratuit sur Vercel."
+        "a": "Non — ce n'est pas ce que nous vendons. Vous achetez votre nom de domaine et votre hébergement chez les fournisseurs de votre choix ; nous vous orientons et vous aidons à brancher le site au moment de la mise en ligne."
       },
       {
         "q": "Puis-je modifier mon site moi-même après la livraison ?",

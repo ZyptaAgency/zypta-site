@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/routing';
+import { PricingNavLink } from '@/components/PricingNavProvider';
 import { Menu, X, ExternalLink } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Logo from './Logo';
@@ -65,9 +66,10 @@ export default function Navbar() {
                   ? pathname === '/'
                   : pathname.startsWith(item.href);
               return (
-                <Link
+                <PricingNavLink
                   key={item.key}
                   href={item.href}
+                  isPricing={item.key === 'pricing'}
                   className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
                     isActive
                       ? 'bg-accent-primary/15 text-text-white shadow-[0_0_15px_rgba(200,75,255,0.2)]'
@@ -75,7 +77,7 @@ export default function Navbar() {
                   }`}
                 >
                   {t(item.key)}
-                </Link>
+                </PricingNavLink>
               );
             })}
             <a
@@ -137,9 +139,10 @@ export default function Navbar() {
                       ? pathname === '/'
                       : pathname.startsWith(item.href);
                   return (
-                    <Link
+                    <PricingNavLink
                       key={item.key}
                       href={item.href}
+                      isPricing={item.key === 'pricing'}
                       onClick={() => setMobileOpen(false)}
                       className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                         isActive
@@ -148,7 +151,7 @@ export default function Navbar() {
                       }`}
                     >
                       {t(item.key)}
-                    </Link>
+                    </PricingNavLink>
                   );
                 })}
                 <a

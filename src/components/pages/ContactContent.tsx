@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Eye, Send, CheckCircle, Sparkles } from 'lucide-react';
 import AnimatedSection from '../AnimatedSection';
+import QuoteRequestForm from '../QuoteRequestForm';
 
 interface ContactFormData {
   name: string;
@@ -468,6 +469,15 @@ function QuickContactCards() {
 export default function ContactContent() {
   const t = useTranslations('contact');
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.location.hash !== '#devis') return;
+    const id = window.requestAnimationFrame(() => {
+      document.getElementById('devis')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    return () => window.cancelAnimationFrame(id);
+  }, []);
+
   return (
     <div className="relative z-10 pt-32 pb-24 px-6">
       <div
@@ -488,6 +498,10 @@ export default function ContactContent() {
         {/* Preview Form - prominent */}
         <AnimatedSection className="mb-12">
           <PreviewForm />
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.05} className="mb-12">
+          <QuoteRequestForm />
         </AnimatedSection>
 
         {/* Quick Contact: Instagram + Gmail */}

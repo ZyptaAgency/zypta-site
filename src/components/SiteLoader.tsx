@@ -2,16 +2,15 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTranslations } from 'next-intl';
 import Logo from './Logo';
+import { AnimatedSloganWords } from './AnimatedSloganWords';
 
 interface SiteLoaderProps {
   duration?: number;
   onlyFirstVisit?: boolean;
 }
 
-export default function SiteLoader({ duration = 2400, onlyFirstVisit = true }: SiteLoaderProps) {
-  const t = useTranslations('footer');
+export default function SiteLoader({ duration = 2800, onlyFirstVisit = true }: SiteLoaderProps) {
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
 
@@ -42,15 +41,13 @@ export default function SiteLoader({ duration = 2400, onlyFirstVisit = true }: S
 
   if (!mounted) return null;
 
-  const words = [t('slogan1'), t('slogan2'), t('slogan3')];
-
   return (
     <AnimatePresence>
       {visible && (
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.55, ease: 'easeInOut' } }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden px-6"
           style={{ background: 'var(--bg-void)' }}
           aria-busy="true"
           aria-label="Chargement"
@@ -67,55 +64,31 @@ export default function SiteLoader({ duration = 2400, onlyFirstVisit = true }: S
           />
 
           <motion.div
-            initial={{ opacity: 0, y: 16, scale: 0.95 }}
+            initial={{ opacity: 0, y: 20, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mb-10 flex flex-col items-center gap-3"
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="relative mb-12 sm:mb-14 flex flex-col items-center gap-4"
           >
-            <Logo src="/icon.png" width={56} height={56} />
-            <span className="font-ethno text-3xl sm:text-4xl gradient-text tracking-[0.25em]">ZYPTA</span>
+            <Logo src="/icon.png" width={96} height={96} />
+            <span className="font-ethno text-4xl sm:text-5xl md:text-6xl gradient-text tracking-tight leading-none">
+              ZYPTA
+            </span>
             <motion.div
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ delay: 0.35, duration: 0.55, ease: 'easeOut' }}
-              className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-40 h-0.5 origin-center"
+              transition={{ delay: 0.4, duration: 0.6, ease: 'easeOut' }}
+              className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-48 sm:w-56 h-0.5 origin-center"
               style={{
                 background: 'linear-gradient(90deg, transparent, rgba(200,75,255,0.9), rgba(0,212,255,0.6), transparent)',
               }}
             />
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={{
-              hidden: { opacity: 0 },
-              show: {
-                opacity: 1,
-                transition: { staggerChildren: 0.18, delayChildren: 0.55 },
-              },
-            }}
-            className="relative flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 text-center font-ethno font-bold"
-            aria-label={`${t('slogan1')} ${t('slogan2')} ${t('slogan3')}`}
-          >
-            {words.map((word) => (
-              <motion.span
-                key={word}
-                variants={{
-                  hidden: { opacity: 0, y: 24, filter: 'blur(10px)' },
-                  show: {
-                    opacity: 1,
-                    y: 0,
-                    filter: 'blur(0px)',
-                    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
-                  },
-                }}
-                className="inline-block gradient-text text-2xl sm:text-4xl lg:text-5xl"
-              >
-                {word}
-              </motion.span>
-            ))}
-          </motion.div>
+          <AnimatedSloganWords
+            delayChildren={0.85}
+            staggerChildren={0.36}
+            wordClassName="text-base sm:text-xl md:text-2xl"
+          />
 
           <motion.div
             initial={{ opacity: 0 }}
@@ -128,7 +101,7 @@ export default function SiteLoader({ duration = 2400, onlyFirstVisit = true }: S
               initial={{ x: '-100%' }}
               animate={{ x: '0%' }}
               transition={{
-                duration: Math.max(0.6, duration / 1000 - 0.35),
+                duration: Math.max(0.65, duration / 1000 - 0.4),
                 ease: [0.22, 1, 0.36, 1],
               }}
               className="h-full w-full rounded-full"

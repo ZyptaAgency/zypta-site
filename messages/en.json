@@ -127,7 +127,7 @@
   },
   "contact": {
     "headline": "Let's talk about your project.",
-    "sub": "We're just one message away from launching your digital presence.",
+    "sub": "Request a free preview, build your quote online (plan + add-ons), or message us directly.",
     "name": "Full Name",
     "email": "Email Address",
     "subject": "Subject",
@@ -148,7 +148,23 @@
     "instaAction": "Quick reply via DM",
     "emailCta": "Send us an email",
     "emailAction": "We reply within 24h",
-    "quickResponse": "Want a faster response?"
+    "quickResponse": "Want a faster response?",
+    "quoteTitle": "Build your quote",
+    "quoteSub": "Pick a plan and tick the add-ons you want. We'll send a detailed quote within 24–48 hours.",
+    "quotePlanLabel": "Plan",
+    "quotePlanEmpty": "Select a plan",
+    "quotePlanRequired": "Please choose one of the three plans.",
+    "quoteAddonsLabel": "Add-ons",
+    "quoteNotesPlaceholder": "Timeline, references, constraints… (optional)",
+    "quoteEstimate": "Indicative estimate",
+    "quoteEstimateHint": "Total excludes recurring subscriptions. Final scope confirmed after we talk.",
+    "quoteSubmit": "Send my quote request",
+    "quoteSuccessTitle": "Quote request sent!",
+    "quoteSuccessSub": "We received your selection. You'll get a tailored proposal shortly.",
+    "quotePhone": "Phone (optional)",
+    "quotePerMonth": "/mo",
+    "quoteCopyLink": "Copy quote link",
+    "quoteCopied": "Link copied"
   },
   "preview": {
     "title": "Request a Free Preview",
@@ -187,7 +203,7 @@
     "title": "Privacy Policy",
     "intro": "Zypta is committed to protecting your personal data. This policy explains how we collect, use and protect your information.",
     "collectTitle": "Data collection",
-    "collectText": "We collect the data you provide through our contact and preview forms: name, email, phone, business name, project description, and optionally files (photo, logo). This data is sent by email to our team to process your request.",
+    "collectText": "We collect the data you provide through our contact, preview, and quote request forms: name, email, phone, chosen plan and add-ons, project description, and optionally files (photo, logo). This data is sent by email to our team to process your request. On the pricing page, a plan choice may be stored temporarily in your browser (session) to pre-fill the quote; nothing is sent until you submit the form.",
     "cookiesTitle": "Cookies used",
     "cookiesText": "Our site uses only essential cookies for functionality. We do not use advertising or third-party tracking cookies.",
     "essentialCookiesTitle": "Essential cookies",
@@ -224,8 +240,12 @@
     "examplesOne": "See an example",
     "examplesMany": "Our examples",
     "addonsTitle": "Need more? Add what you need.",
-    "addonsIntro": "Each plan can be extended with à la carte options. Click an option to add it to your quote.",
+    "addonsIntro": "Each plan can be extended with à la carte options. Pick a plan above first if you want it pre-selected when you add options.",
     "addonCta": "Add to my quote",
+    "selectPlanCta": "Select for add-ons",
+    "planSelectedCta": "Plan selected",
+    "addonsLinkedHint": "Add-ons open the quote with the « {plan} » plan.",
+    "clearPlanSelection": "Clear plan choice",
     "faqTitle": "Frequently asked questions",
     "finalTitle": "A question? A project outside the box?",
     "finalSub": "Let's talk directly. First call is free, no obligation.",
@@ -249,8 +269,8 @@
           "Contact form",
           "Basic SEO (tags, sitemap, meta)",
           "GDPR cookie banner",
-          "Hosting included 1st year",
-          "Domain name included 1st year",
+          "Domain and hosting not included (your responsibility)",
+          "Guidance and help configuring them for go-live",
           "Delivery in 7 days"
         ],
         "examples": [
@@ -387,7 +407,7 @@
       },
       {
         "q": "Are domain and hosting included?",
-        "a": "Yes, the first year is included for Essential and Pro. After that, expect roughly €15–30/year for the domain; hosting stays free on Vercel."
+        "a": "No — we don't sell those. You buy your domain and hosting from providers you choose; we guide you and help connect the site when we go live."
       },
       {
         "q": "Can I edit the site myself later?",

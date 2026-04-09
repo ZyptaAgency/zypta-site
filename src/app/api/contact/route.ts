@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     const FROM_EMAIL = process.env.FROM_EMAIL || 'noreply@zypta.be';
 
     let type: string;
-    let data: Record<string, string>;
+    let data: Record<string, unknown>;
     let attachments: { filename: string; content: Buffer }[] = [];
 
     const contentType = request.headers.get('content-type') || '';
@@ -45,11 +45,64 @@ export async function POST(request: Request) {
       data = rest;
     }
 
-    if (type === 'contact') {
+    if (type === 'quote') {
+      const addons = Array.isArray((data as { addons?: unknown }).addons)
+        ? ((data as { addons: { slug: string; label: string; price: string }[] }).addons)
+        : [];
+      const monthly = (data as { estimateMonthly?: { label: string; amount: number } | null }).estimateMonthly;
+      const estimateOne = escapeHtml(String((data as { estimateOneTime?: number }).estimateOneTime ?? ''));
+      const addonsHtml =
+        addons.length > 0
+          ? addons
+              .map(
+                (a) =>
+                  `<tr><td style="padding:8px 0;color:#a0a0a0;">${escapeHtml(a.label)}</td><td style="padding:8px 0;color:white;font-weight:600;">${escapeHtml(a.price)}</td></tr>`,
+              )
+              .join('')
+          : '<tr><td colspan="2" style="padding:8px 0;color:#a0a0a0;">—</td></tr>';
+
       await resend.emails.send({
         from: `Zypta Site <${FROM_EMAIL}>`,
         to: TO_EMAIL,
-        subject: `📩 Nouveau message de ${data.name} — ${data.subject}`,
+        subject: `📋 Demande de devis — ${escapeHtml(String(data.name ?? ''))} (${escapeHtml(String(data.planName ?? ''))})`,
+        html: `
+          <div style="font-family: 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; background: #0f0a1a; color: #e0e0e0; border-radius: 16px; overflow: hidden;">
+            <div style="background: linear-gradient(135deg, #128C7E, #25D366); padding: 24px 32px;">
+              <h1 style="color: white; margin: 0; font-size: 22px;">📋 Nouvelle demande de devis</h1>
+            </div>
+            <div style="padding: 32px;">
+              <table style="width: 100%; border-collapse: collapse;">
+                <tr><td style="padding: 12px 0; color: #a0a0a0; width: 140px;">Nom</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(String(data.name ?? ''))}</td></tr>
+                <tr><td style="padding: 12px 0; color: #a0a0a0;">Email</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(String(data.email ?? ''))}</td></tr>
+                <tr><td style="padding: 12px 0; color: #a0a0a0;">Téléphone</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(String(data.phone || '—'))}</td></tr>
+                <tr><td style="padding: 12px 0; color: #a0a0a0;">Formule</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(String(data.planName ?? ''))} (${escapeHtml(String(data.planPrice ?? ''))} €)</td></tr>
+                <tr><td style="padding: 12px 0; color: #a0a0a0; vertical-align: top;">Options</td><td style="padding: 12px 0;">
+                  <table style="width:100%;">${addonsHtml}</table>
+                </td></tr>
+                <tr><td style="padding: 12px 0; color: #a0a0a0;">Estimation TVAC</td><td style="padding: 12px 0; color: #25D366; font-weight: 700; font-size: 18px;">${estimateOne} €</td></tr>
+                ${
+                  monthly
+                    ? `<tr><td style="padding: 12px 0; color: #a0a0a0;">Abonnement</td><td style="padding: 12px 0; color: white;">${escapeHtml(monthly.label)} — ${monthly.amount} €/mois</td></tr>`
+                    : ''
+                }
+              </table>
+              ${
+                data.notes
+                  ? `<div style="margin-top: 24px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                <p style="color: #a0a0a0; margin: 0 0 8px; font-size: 13px;">Précisions</p>
+                <p style="color: white; margin: 0; line-height: 1.6;">${escapeHtml(String(data.notes ?? ''))}</p>
+              </div>`
+                  : ''
+              }
+            </div>
+          </div>
+        `,
+      });
+    } else     if (type === 'contact') {
+      await resend.emails.send({
+        from: `Zypta Site <${FROM_EMAIL}>`,
+        to: TO_EMAIL,
+        subject: `📩 Nouveau message de ${String(data.name ?? '')} — ${String(data.subject ?? '')}`,
         html: `
           <div style="font-family: 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; background: #0f0a1a; color: #e0e0e0; border-radius: 16px; overflow: hidden;">
             <div style="background: linear-gradient(135deg, #c84bff, #ff2d8f); padding: 24px 32px;">
@@ -57,13 +110,13 @@ export async function POST(request: Request) {
             </div>
             <div style="padding: 32px;">
               <table style="width: 100%; border-collapse: collapse;">
-                <tr><td style="padding: 12px 0; color: #a0a0a0; width: 120px;">Nom</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(data.name || '')}</td></tr>
-                <tr><td style="padding: 12px 0; color: #a0a0a0;">Email</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(data.email || '')}</td></tr>
-                <tr><td style="padding: 12px 0; color: #a0a0a0;">Sujet</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(data.subject || '')}</td></tr>
+                <tr><td style="padding: 12px 0; color: #a0a0a0; width: 120px;">Nom</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(String(data.name ?? ''))}</td></tr>
+                <tr><td style="padding: 12px 0; color: #a0a0a0;">Email</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(String(data.email ?? ''))}</td></tr>
+                <tr><td style="padding: 12px 0; color: #a0a0a0;">Sujet</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(String(data.subject ?? ''))}</td></tr>
               </table>
               <div style="margin-top: 24px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
                 <p style="color: #a0a0a0; margin: 0 0 8px; font-size: 13px;">Message</p>
-                <p style="color: white; margin: 0; line-height: 1.6;">${escapeHtml(data.message || '')}</p>
+                <p style="color: white; margin: 0; line-height: 1.6;">${escapeHtml(String(data.message ?? ''))}</p>
               </div>
             </div>
           </div>
@@ -73,7 +126,7 @@ export async function POST(request: Request) {
       await resend.emails.send({
         from: `Zypta Site <${FROM_EMAIL}>`,
         to: TO_EMAIL,
-        subject: `🎨 Nouvelle demande d'aperçu — ${data.business}`,
+        subject: `🎨 Nouvelle demande d'aperçu — ${String(data.business ?? '')}`,
         attachments: attachments.length ? attachments : undefined,
         html: `
           <div style="font-family: 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; background: #0f0a1a; color: #e0e0e0; border-radius: 16px; overflow: hidden;">
@@ -82,21 +135,21 @@ export async function POST(request: Request) {
             </div>
             <div style="padding: 32px;">
               <table style="width: 100%; border-collapse: collapse;">
-                <tr><td style="padding: 12px 0; color: #a0a0a0; width: 140px;">Nom</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(data.name)}</td></tr>
-                <tr><td style="padding: 12px 0; color: #a0a0a0;">Email</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(data.email)}</td></tr>
-                <tr><td style="padding: 12px 0; color: #a0a0a0;">Téléphone</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(data.phone || '—')}</td></tr>
-                <tr><td style="padding: 12px 0; color: #a0a0a0;">Activité</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(data.business)}</td></tr>
-                <tr><td style="padding: 12px 0; color: #a0a0a0;">Service souhaité</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(data.service)}</td></tr>
+                <tr><td style="padding: 12px 0; color: #a0a0a0; width: 140px;">Nom</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(String(data.name ?? ''))}</td></tr>
+                <tr><td style="padding: 12px 0; color: #a0a0a0;">Email</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(String(data.email ?? ''))}</td></tr>
+                <tr><td style="padding: 12px 0; color: #a0a0a0;">Téléphone</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(String(data.phone || '—'))}</td></tr>
+                <tr><td style="padding: 12px 0; color: #a0a0a0;">Activité</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(String(data.business ?? ''))}</td></tr>
+                <tr><td style="padding: 12px 0; color: #a0a0a0;">Service souhaité</td><td style="padding: 12px 0; color: white; font-weight: 600;">${escapeHtml(String(data.service ?? ''))}</td></tr>
               </table>
               ${data.servicesOffered ? `
               <div style="margin-top: 24px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
                 <p style="color: #a0a0a0; margin: 0 0 8px; font-size: 13px;">Services offerts</p>
-                <p style="color: white; margin: 0; line-height: 1.6;">${escapeHtml(data.servicesOffered)}</p>
+                <p style="color: white; margin: 0; line-height: 1.6;">${escapeHtml(String(data.servicesOffered))}</p>
               </div>` : ''}
               ${data.details ? `
               <div style="margin-top: 24px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
                 <p style="color: #a0a0a0; margin: 0 0 8px; font-size: 13px;">Détails du projet</p>
-                <p style="color: white; margin: 0; line-height: 1.6;">${escapeHtml(data.details)}</p>
+                <p style="color: white; margin: 0; line-height: 1.6;">${escapeHtml(String(data.details))}</p>
               </div>` : ''}
               ${attachments.length ? `<p style="color: #a0a0a0; margin-top: 24px; font-size: 13px;">📎 ${attachments.length} fichier(s) joint(s)</p>` : ''}
             </div>

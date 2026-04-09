@@ -16,8 +16,12 @@ const pricingFr = {
   examplesMany: 'Nos exemples',
   addonsTitle: "Besoin de plus ? Ajoutez ce qu'il vous faut.",
   addonsIntro:
-    "Chaque formule peut être enrichie avec des options à la carte. Cliquez sur une option pour l'ajouter à votre devis.",
+    "Chaque formule peut être enrichie avec des options à la carte. Choisissez d'abord une formule ci-dessus si vous voulez qu'elle soit présélectionnée avec chaque option.",
   addonCta: 'Ajouter à mon devis',
+  selectPlanCta: 'Choisir pour les options',
+  planSelectedCta: 'Formule sélectionnée',
+  addonsLinkedHint: 'Les options ouvrent le devis avec la formule « {plan} ».',
+  clearPlanSelection: 'Effacer le choix de formule',
   faqTitle: 'Questions fréquentes sur nos tarifs',
   finalTitle: 'Une question ? Un projet hors cadre ?',
   finalSub: 'Parlons-en directement. Premier échange gratuit, sans engagement.',
@@ -41,8 +45,8 @@ const pricingFr = {
         'Formulaire de contact',
         'SEO de base (balises, sitemap, meta)',
         'Bannière cookies RGPD',
-        'Hébergement offert la 1ʳᵉ année',
-        'Nom de domaine offert la 1ʳᵉ année',
+        'Nom de domaine et hébergement non inclus (à votre charge)',
+        'Conseils et aide à la configuration pour la mise en ligne',
         'Livraison en 7 jours',
       ],
       examples: [
@@ -185,7 +189,7 @@ const pricingFr = {
     },
     {
       q: "Le nom de domaine et l'hébergement sont-ils inclus ?",
-      a: "Oui, la première année est offerte pour les formules Essentiel et Pro. Ensuite, comptez environ 15 à 30 €/an pour le domaine et l'hébergement reste gratuit sur Vercel.",
+      a: "Non — ce n'est pas ce que nous vendons. Vous achetez votre nom de domaine et votre hébergement chez les fournisseurs de votre choix ; nous vous orientons et vous aidons à brancher le site au moment de la mise en ligne.",
     },
     {
       q: 'Puis-je modifier mon site moi-même après la livraison ?',
@@ -209,8 +213,12 @@ const pricingEn = {
   examplesMany: 'Our examples',
   addonsTitle: 'Need more? Add what you need.',
   addonsIntro:
-    'Each plan can be extended with à la carte options. Click an option to add it to your quote.',
+    'Each plan can be extended with à la carte options. Pick a plan above first if you want it pre-selected when you add options.',
   addonCta: 'Add to my quote',
+  selectPlanCta: 'Select for add-ons',
+  planSelectedCta: 'Plan selected',
+  addonsLinkedHint: 'Add-ons open the quote with the « {plan} » plan.',
+  clearPlanSelection: 'Clear plan choice',
   faqTitle: 'Frequently asked questions',
   finalTitle: 'A question? A project outside the box?',
   finalSub: "Let's talk directly. First call is free, no obligation.",
@@ -234,8 +242,8 @@ const pricingEn = {
         'Contact form',
         'Basic SEO (tags, sitemap, meta)',
         'GDPR cookie banner',
-        'Hosting included 1st year',
-        'Domain name included 1st year',
+        'Domain and hosting not included (your responsibility)',
+        'Guidance and help configuring them for go-live',
         'Delivery in 7 days',
       ],
       examples: [
@@ -378,7 +386,7 @@ const pricingEn = {
     },
     {
       q: 'Are domain and hosting included?',
-      a: 'Yes, the first year is included for Essential and Pro. After that, expect roughly €15–30/year for the domain; hosting stays free on Vercel.',
+      a: "No — we don't sell those. You buy your domain and hosting from providers you choose; we guide you and help connect the site when we go live.",
     },
     {
       q: 'Can I edit the site myself later?',
