@@ -418,7 +418,7 @@ function QuickContactCards() {
 
         {/* Gmail CTA */}
         <motion.a
-          href="mailto:contact@zypta.be"
+          href="mailto:business@zypta.be"
           whileHover={{ scale: 1.03, y: -3 }}
           whileTap={{ scale: 0.98 }}
           className="group relative block overflow-hidden rounded-2xl cursor-pointer"

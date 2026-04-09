@@ -141,7 +141,7 @@
     "successSub": "Merci pour votre message ! Notre équipe l'a bien reçu et vous répondra dans les plus brefs délais.",
     "infoTitle": "Nos coordonnées",
     "phone": "+32 487 10 29 28",
-    "emailAddress": "contact@zypta.be",
+    "emailAddress": "business@zypta.be",
     "address": "Bruxelles, Belgique",
     "hours": "Lundi – Vendredi, 11h – 20h",
     "instagram": "@zypta.be",
@@ -221,9 +221,9 @@
     "essentialCookie2Purpose": "Mémorise votre préférence de langue (FR/EN)",
     "essentialCookie2Duration": "1 an",
     "rightsTitle": "Vos droits (RGPD)",
-    "rightsText": "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition à vos données. Pour exercer ces droits, contactez-nous à contact@zypta.be. Nous traiterons votre demande dans les 30 jours.",
+    "rightsText": "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition à vos données. Pour exercer ces droits, contactez-nous à business@zypta.be. Nous traiterons votre demande dans les 30 jours.",
     "contactTitle": "Contact",
-    "contactText": "Pour toute question relative à vos données personnelles : contact@zypta.be"
+    "contactText": "Pour toute question relative à vos données personnelles : business@zypta.be"
   },
   "footer": {
     "slogan1": "Zip.",

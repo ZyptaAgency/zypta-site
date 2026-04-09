@@ -63,7 +63,7 @@ export default function Sidebar() {
 
         <div className="space-y-4">
           <LanguageSwitcher />
-          <p className="text-xs text-text-muted">contact@zypta.be</p>
+          <p className="text-xs text-text-muted">business@zypta.be</p>
         </div>
       </aside>
 
@@ -145,7 +145,7 @@ export default function Sidebar() {
               </div>
               <div className="space-y-4">
                 <LanguageSwitcher />
-                <p className="text-xs text-text-muted">contact@zypta.be</p>
+                <p className="text-xs text-text-muted">business@zypta.be</p>
               </div>
             </motion.div>
           </>

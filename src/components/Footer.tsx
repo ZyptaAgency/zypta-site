@@ -83,7 +83,7 @@ export default function Footer() {
               </div>
             </a>
             <a
-              href="mailto:contact@zypta.be"
+              href="mailto:business@zypta.be"
               className="group flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 hover:shadow-[0_0_25px_rgba(234,67,53,0.3)] hover:-translate-y-0.5"
               style={{ background: 'linear-gradient(135deg, rgba(234,67,53,0.15), rgba(197,34,31,0.12), rgba(234,67,53,0.1))' }}
             >
