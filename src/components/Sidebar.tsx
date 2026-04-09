@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/routing';
 import { PricingNavLink } from '@/components/PricingNavProvider';
+import HomeLogoLink from '@/components/HomeLogoLink';
 import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Logo from './Logo';
@@ -33,9 +34,9 @@ export default function Sidebar() {
         }}
       >
         <div>
-          <Link href="/" className="block mb-12">
+          <HomeLogoLink className="block mb-12">
             <Logo src="/logo.png" width={160} height={80} />
-          </Link>
+          </HomeLogoLink>
           <nav className="flex flex-col gap-2">
             {navItems.map((item) => {
               const isActive =
@@ -74,12 +75,12 @@ export default function Sidebar() {
           WebkitBackdropFilter: 'blur(20px)',
         }}
       >
-        <Link href="/" className="flex items-center gap-2">
+        <HomeLogoLink className="flex items-center gap-2">
           <Logo src="/icon.png" width={34} height={34} />
           <span className="font-ethno text-lg gradient-text tracking-wider">
             ZYPTA
           </span>
-        </Link>
+        </HomeLogoLink>
         <div className="flex items-center gap-3">
           <LanguageSwitcher />
           <button
@@ -115,9 +116,9 @@ export default function Sidebar() {
               }}
             >
               <div>
-                <Link href="/" onClick={() => setMobileOpen(false)} className="block mb-10">
+                <HomeLogoLink onBeforeLoader={() => setMobileOpen(false)} className="block mb-10">
                   <Logo src="/logo.png" width={160} height={80} />
-                </Link>
+                </HomeLogoLink>
                 <nav className="flex flex-col gap-2">
                   {navItems.map((item) => {
                     const isActive =

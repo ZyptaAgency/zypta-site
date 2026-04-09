@@ -9,7 +9,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import StarBackground from '@/components/StarBackground';
-import SiteLoader from '@/components/SiteLoader';
+import { SiteLoaderProvider } from '@/components/SiteLoaderContext';
 import { PricingNavProvider } from '@/components/PricingNavProvider';
 
 const SITE_URL = 'https://zypta.be';
@@ -101,16 +101,17 @@ export default async function LocaleLayout({
       </head>
       <body className="font-body antialiased">
         <NextIntlClientProvider messages={messages}>
-          <PricingNavProvider>
-            <SiteLoader />
-            <StarBackground />
-            <Navbar />
-            <main className="min-h-screen relative z-10">
-              {children}
-            </main>
-            <Footer />
-            <CookieBanner />
-          </PricingNavProvider>
+          <SiteLoaderProvider>
+            <PricingNavProvider>
+              <StarBackground />
+              <Navbar />
+              <main className="min-h-screen relative z-10">
+                {children}
+              </main>
+              <Footer />
+              <CookieBanner />
+            </PricingNavProvider>
+          </SiteLoaderProvider>
         </NextIntlClientProvider>
       </body>
     </html>

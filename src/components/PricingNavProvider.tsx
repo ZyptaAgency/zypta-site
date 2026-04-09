@@ -14,8 +14,8 @@ import { AnimatePresence } from 'framer-motion';
 import { Link, usePathname, useRouter } from '@/i18n/routing';
 import PricingRouteLoader from './PricingRouteLoader';
 
-const MIN_VISIBLE_MS = 1400;
-const EXTRA_AFTER_ARRIVE_MS = 480;
+const MIN_VISIBLE_MS = 2800;
+const EXTRA_AFTER_ARRIVE_MS = 1100;
 
 type Ctx = { startPricingNav: (afterClick?: () => void) => void };
 

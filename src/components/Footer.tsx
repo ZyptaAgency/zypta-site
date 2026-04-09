@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
+import HomeLogoLink from '@/components/HomeLogoLink';
 import { Phone, Mail, MapPin, Clock, ExternalLink } from 'lucide-react';
 import Logo from './Logo';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -18,12 +19,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
           {/* Brand */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-3">
+            <HomeLogoLink className="flex items-center gap-3">
               <Logo src="/icon.png" width={56} height={56} />
               <span className="font-ethno text-2xl md:text-3xl gradient-text tracking-wider leading-none">
                 ZYPTA
               </span>
-            </Link>
+            </HomeLogoLink>
             <div className="flex flex-col items-start gap-0.5 font-ethno text-sm md:text-base tracking-wider leading-tight">
               <span className="block gradient-text">{t('slogan1')}</span>
               <span className="block gradient-text">{t('slogan2')}</span>

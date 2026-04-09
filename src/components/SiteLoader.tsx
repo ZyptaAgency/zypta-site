@@ -1,43 +1,78 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from './Logo';
 import { AnimatedSloganWords } from './AnimatedSloganWords';
 
+export type SiteLoaderReplay = { id: number; onComplete?: () => void } | null;
+
 interface SiteLoaderProps {
+  replayRequest: SiteLoaderReplay;
+  onReplayConsumed: () => void;
   duration?: number;
   onlyFirstVisit?: boolean;
 }
 
-export default function SiteLoader({ duration = 2800, onlyFirstVisit = true }: SiteLoaderProps) {
+export default function SiteLoader({
+  replayRequest,
+  onReplayConsumed,
+  duration = 3600,
+  onlyFirstVisit = true,
+}: SiteLoaderProps) {
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
+  const firstVisitScheduled = useRef(false);
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || firstVisitScheduled.current) return;
 
     if (onlyFirstVisit && typeof window !== 'undefined') {
       const seen = sessionStorage.getItem('zypta-loader-seen');
       if (seen) {
+        firstVisitScheduled.current = true;
         return;
       }
       sessionStorage.setItem('zypta-loader-seen', '1');
     }
 
+    firstVisitScheduled.current = true;
     setVisible(true);
     document.body.style.overflow = 'hidden';
 
-    const timer = setTimeout(() => {
+    const timer = window.setTimeout(() => {
       setVisible(false);
       document.body.style.overflow = '';
     }, duration);
 
     return () => {
-      clearTimeout(timer);
+      window.clearTimeout(timer);
       document.body.style.overflow = '';
     };
-  }, [duration, onlyFirstVisit]);
+  }, [mounted, duration, onlyFirstVisit]);
+
+  useEffect(() => {
+    if (!replayRequest) return;
+
+    setVisible(true);
+    document.body.style.overflow = 'hidden';
+
+    const timer = window.setTimeout(() => {
+      setVisible(false);
+      document.body.style.overflow = '';
+      replayRequest.onComplete?.();
+      onReplayConsumed();
+    }, duration);
+
+    return () => {
+      window.clearTimeout(timer);
+      document.body.style.overflow = '';
+    };
+  }, [replayRequest, duration, onReplayConsumed]);
 
   if (!mounted) return null;
 
@@ -67,7 +102,7 @@ export default function SiteLoader({ duration = 2800, onlyFirstVisit = true }: S
             initial={{ opacity: 0, y: 20, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mb-12 sm:mb-14 flex flex-col items-center gap-4"
+            className="relative mb-10 sm:mb-12 flex flex-col items-center gap-4"
           >
             <Logo src="/icon.png" width={96} height={96} />
             <span className="font-ethno text-4xl sm:text-5xl md:text-6xl gradient-text tracking-tight leading-none">
@@ -87,7 +122,7 @@ export default function SiteLoader({ duration = 2800, onlyFirstVisit = true }: S
           <AnimatedSloganWords
             delayChildren={0.85}
             staggerChildren={0.36}
-            wordClassName="text-base sm:text-xl md:text-2xl"
+            wordClassName="text-2xl sm:text-4xl md:text-5xl lg:text-6xl"
           />
 
           <motion.div

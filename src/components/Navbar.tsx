@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/routing';
 import { PricingNavLink } from '@/components/PricingNavProvider';
+import HomeLogoLink from '@/components/HomeLogoLink';
 import { Menu, X, ExternalLink } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Logo from './Logo';
@@ -51,12 +52,12 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
           {/* Logo: Z icon + ZYPTA typo */}
-          <Link href="/" className="flex items-center gap-3 shrink-0">
+          <HomeLogoLink className="flex items-center gap-3 shrink-0">
             <Logo src="/icon.png" width={44} height={44} />
             <span className="font-ethno text-2xl gradient-text tracking-wider leading-none">
               ZYPTA
             </span>
-          </Link>
+          </HomeLogoLink>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
