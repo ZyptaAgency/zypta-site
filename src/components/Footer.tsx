@@ -20,7 +20,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <HomeLogoLink className="flex items-center gap-3">
-              <Logo src="/icon.png" width={56} height={56} />
+              <Logo src="/z-mask.png" width={56} height={56} />
               <span className="font-ethno text-2xl md:text-3xl gradient-text tracking-wider leading-none">
                 ZYPTA
               </span>

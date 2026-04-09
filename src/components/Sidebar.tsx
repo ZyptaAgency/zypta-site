@@ -76,7 +76,7 @@ export default function Sidebar() {
         }}
       >
         <HomeLogoLink className="flex items-center gap-2">
-          <Logo src="/icon.png" width={34} height={34} />
+          <Logo src="/z-mask.png" width={34} height={34} />
           <span className="font-ethno text-lg gradient-text tracking-wider">
             ZYPTA
           </span>

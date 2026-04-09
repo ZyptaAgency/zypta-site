@@ -1,10 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
+    <!-- Même palette que .gradient-text / Logo : linear-gradient(135deg, #ff6b35, #c84bff, #00d4ff) -->
     <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#c84bff"/>
-      <stop offset="100%" stop-color="#ff6b35"/>
+      <stop offset="0%" stop-color="#ff6b35"/>
+      <stop offset="50%" stop-color="#c84bff"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
     </linearGradient>
   </defs>
   <rect width="64" height="64" rx="14" fill="#03010a"/>
-  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="38" fill="url(#g)">Z</text>
+  <!-- Path (pas de <text>) : rendu identique navigateur / export PNG sans police -->
+  <path fill="url(#g)" d="M 16 20 h 32 v 6 H 26 L 48 38 v 6 H 16 v -6 h 20 L 16 26 Z"/>
 </svg>

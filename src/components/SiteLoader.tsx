@@ -104,19 +104,21 @@ export default function SiteLoader({
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative mb-10 sm:mb-12 flex flex-col items-center gap-4"
           >
-            <Logo src="/icon.png" width={96} height={96} />
+            <Logo src="/z-mask.png" width={96} height={96} />
             <span className="font-ethno text-4xl sm:text-5xl md:text-6xl gradient-text tracking-tight leading-none">
               ZYPTA
             </span>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.4, duration: 0.6, ease: 'easeOut' }}
-              className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-48 sm:w-56 h-0.5 origin-center"
-              style={{
-                background: 'linear-gradient(90deg, transparent, rgba(200,75,255,0.9), rgba(0,212,255,0.6), transparent)',
-              }}
-            />
+            <div className="absolute -bottom-4 left-0 right-0 flex justify-center pointer-events-none">
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 0.4, duration: 0.6, ease: 'easeOut' }}
+                className="h-0.5 w-48 sm:w-56 origin-center"
+                style={{
+                  background: 'linear-gradient(90deg, transparent, rgba(200,75,255,0.9), rgba(0,212,255,0.6), transparent)',
+                }}
+              />
+            </div>
           </motion.div>
 
           <AnimatedSloganWords

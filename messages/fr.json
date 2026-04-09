@@ -4,7 +4,10 @@
     "services": "Services",
     "pricing": "Tarifs",
     "about": "À propos",
-    "contact": "Contact"
+    "contact": "Contact",
+    "menu": "Menu",
+    "closeMenu": "Fermer le menu",
+    "language": "Langue"
   },
   "seo": {
     "siteName": "Zypta",

@@ -95,7 +95,8 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${syne.variable} ${dmSans.variable} ${ethnocentric.variable}`}>
       <head>
-        <link rel="icon" href="/icon.png" type="image/png" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/icon.png" type="image/png" sizes="512x512" />
         <link rel="apple-touch-icon" href="/icon.png" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
