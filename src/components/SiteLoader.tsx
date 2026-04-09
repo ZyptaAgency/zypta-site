@@ -104,7 +104,7 @@ export default function SiteLoader({
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative mb-10 sm:mb-12 flex flex-col items-center gap-4"
           >
-            <Logo src="/z-mask.png" width={96} height={96} />
+            <Logo src="/icon.png" width={96} height={96} />
             <span className="font-ethno text-4xl sm:text-5xl md:text-6xl gradient-text tracking-tight leading-none">
               ZYPTA
             </span>
