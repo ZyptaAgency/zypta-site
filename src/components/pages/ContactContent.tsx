@@ -341,7 +341,11 @@ function PreviewForm() {
       formData.set('service', data.service);
       formData.set('details', data.details || '');
       formData.set('servicesOffered', data.servicesOffered || '');
-      if (data.photo?.[0]) formData.append('photo', data.photo[0]);
+      if (data.photo?.length) {
+        for (const file of Array.from(data.photo)) {
+          if (file.size) formData.append('photo', file);
+        }
+      }
       if (data.logo?.[0]) formData.append('logo', data.logo[0]);
 
       const res = await fetch('/api/contact', {
@@ -512,7 +516,13 @@ function PreviewForm() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-text-muted text-xs mb-2 font-medium">{t('photoLabel')}</label>
-                  <input {...register('photo')} type="file" accept="image/*" className={`${inputStyles} file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-accent-primary/20 file:text-accent-primary hover:file:bg-accent-primary/30 file:cursor-pointer`} />
+                  <input
+                    {...register('photo')}
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    className={`${inputStyles} file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-accent-primary/20 file:text-accent-primary hover:file:bg-accent-primary/30 file:cursor-pointer`}
+                  />
                 </div>
                 <div>
                   <label className="block text-text-muted text-xs mb-2 font-medium">{t('logoLabel')}</label>

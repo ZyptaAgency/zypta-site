@@ -46,9 +46,16 @@ export async function POST(request: Request) {
         details: (formData.get('details') as string) || '',
         servicesOffered: (formData.get('servicesOffered') as string) || '',
       };
-      const photo = formData.get('photo') as File | null;
+      const photoFields = formData.getAll('photo');
       const logo = formData.get('logo') as File | null;
-      if (photo?.size) attachments.push({ filename: photo.name || 'photo.jpg', content: Buffer.from(await photo.arrayBuffer()) });
+      for (const entry of photoFields) {
+        if (entry instanceof File && entry.size > 0) {
+          attachments.push({
+            filename: entry.name || 'image.jpg',
+            content: Buffer.from(await entry.arrayBuffer()),
+          });
+        }
+      }
       if (logo?.size) attachments.push({ filename: logo.name || 'logo.png', content: Buffer.from(await logo.arrayBuffer()) });
     } else {
       const body = await request.json();
