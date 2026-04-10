@@ -132,6 +132,10 @@
     "headline": "Parlons de votre projet.",
     "sub": "Demandez un aperçu gratuit, composez votre devis en ligne (formule + options), ou écrivez-nous directement.",
     "name": "Nom complet",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "fieldRequired": "Ce champ est obligatoire.",
+    "invalidEmail": "Adresse email invalide.",
     "email": "Adresse email",
     "subject": "Sujet",
     "message": "Message",
@@ -164,7 +168,13 @@
     "quoteSubmit": "Envoyer ma demande de devis",
     "quoteSuccessTitle": "Demande de devis envoyée !",
     "quoteSuccessSub": "Nous avons bien reçu votre sélection. Vous recevrez une proposition personnalisée très vite.",
-    "quotePhone": "Téléphone (facultatif)",
+    "quotePhone": "Téléphone",
+    "phoneFormLabel": "Téléphone",
+    "phoneRequired": "Le numéro de téléphone est obligatoire.",
+    "phoneInvalid": "Numéro invalide pour ce pays. Vérifiez l’indicatif et le nombre de chiffres.",
+    "phoneCountryLabel": "Pays et indicatif",
+    "phoneNationalPlaceholder": "Numéro sans indicatif",
+    "phoneIntlHint": "Format international : indicatif + numéro national (sans 0 initial). Jusqu’à 15 chiffres au total après le +.",
     "quotePerMonth": "/mois",
     "quoteCopyLink": "Copier le lien de ce devis",
     "quoteCopied": "Lien copié"
@@ -172,11 +182,10 @@
   "preview": {
     "title": "Demandez un aperçu gratuit",
     "sub": "Dites-nous ce que vous cherchez, on vous prépare une maquette personnalisée.",
-    "name": "Nom complet",
     "email": "Adresse email",
     "phone": "Téléphone",
     "business": "Votre activité",
-    "businessPlaceholder": "Ex: Coiffeur, Restaurant, Freelance...",
+    "businessPlaceholder": "Activité / profession",
     "serviceLabel": "Service souhaité",
     "serviceOptions": {
       "showcase": "Site Vitrine",
@@ -272,8 +281,8 @@
           "Formulaire de contact",
           "SEO de base (balises, sitemap, meta)",
           "Bannière cookies RGPD",
-          "Nom de domaine et hébergement non inclus (à votre charge)",
-          "Conseils et aide à la configuration pour la mise en ligne",
+          "Hébergement 1ʳᵉ année offert",
+          "Nom de domaine 1ʳᵉ année offert",
           "Livraison en 7 jours"
         ],
         "examples": [
@@ -355,35 +364,35 @@
       {
         "icon": "FileText",
         "label": "Rédaction de contenu",
-        "price": "+ 290 €",
+        "price": "+ 190 €",
         "description": "Textes professionnels pour vos pages : accroches, services, à propos. Ton adapté à votre marque, optimisé SEO.",
         "slug": "redaction"
       },
       {
         "icon": "Globe",
         "label": "Site multilingue",
-        "price": "+ 390 €",
+        "price": "+ 290 €",
         "description": "Votre site traduit en FR / NL / EN avec routing automatique. Idéal pour toucher une clientèle bruxelloise et internationale.",
         "slug": "multilingue"
       },
       {
         "icon": "FileText",
         "label": "Blog / CMS headless",
-        "price": "+ 490 €",
+        "price": "+ 290 €",
         "description": "Ajoutez un blog éditable depuis un back-office simple. Parfait pour le SEO long terme et partager votre expertise.",
         "slug": "blog"
       },
       {
         "icon": "Calendar",
         "label": "Réservation intégrée",
-        "price": "+ 590 €",
+        "price": "+ 390 €",
         "description": "Système de prise de rendez-vous en ligne synchronisé à votre agenda. Vos clients réservent directement depuis votre site.",
         "slug": "reservation"
       },
       {
         "icon": "Palette",
         "label": "Logo & identité visuelle",
-        "price": "+ 390 €",
+        "price": "+ 290 €",
         "description": "Logo sur mesure, palette de couleurs, typographies et charte graphique. Une identité cohérente sur tous vos supports.",
         "slug": "branding"
       },
@@ -398,7 +407,7 @@
     "faq": [
       {
         "q": "Les prix affichés sont-ils définitifs ?",
-        "a": "Oui. Le prix indiqué est le prix que vous payez, TVAC. Aucun frais caché. Si votre projet sort du cadre de la formule, nous vous le disons clairement avant de commencer, avec un devis détaillé."
+        "a": "Oui. TVAC. Aucun frais caché. Devis clair avant tout commencement. Si votre projet sort du cadre de la formule, nous vous le disons avant de lancer, avec un devis détaillé."
       },
       {
         "q": "Comment se passe le paiement ?",
@@ -410,7 +419,7 @@
       },
       {
         "q": "Le nom de domaine et l'hébergement sont-ils inclus ?",
-        "a": "Non — ce n'est pas ce que nous vendons. Vous achetez votre nom de domaine et votre hébergement chez les fournisseurs de votre choix ; nous vous orientons et vous aidons à brancher le site au moment de la mise en ligne."
+        "a": "Oui : 1ʳᵉ année offerte pour Essentiel et Pro (nom de domaine + hébergement). Ensuite, comptez environ 15 à 30 €/an selon les offres. L'hébergement Vercel pour le site reste gratuit."
       },
       {
         "q": "Puis-je modifier mon site moi-même après la livraison ?",

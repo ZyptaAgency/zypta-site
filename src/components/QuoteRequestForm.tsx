@@ -2,11 +2,13 @@
 
 import { Suspense, useEffect, useMemo, useRef, useState, type ChangeEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FileText, Calculator, CheckCircle, Sparkles, Link2 } from 'lucide-react';
 import { readStoredFormule, writeStoredFormule } from '@/lib/pricing-prefs';
+import { validatePhoneFull } from '@/lib/phone-countries';
+import PhoneField from '@/components/PhoneField';
 
 const inputStyles =
   'w-full bg-white/[0.03] border border-white/10 rounded-xl px-5 py-3.5 text-text-white text-sm placeholder:text-text-muted/60 focus:outline-none focus:border-accent-primary/50 focus:shadow-[0_0_20px_rgba(200,75,255,0.15)] transition-all duration-300';
@@ -26,13 +28,21 @@ type AddonRaw = {
 };
 
 type QuoteFormValues = {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
   planId: string;
   addonSlugs: string[];
   notes: string;
 };
+
+function reqTrim(msg: string) {
+  return {
+    required: msg,
+    validate: (v: string) => (v || '').trim().length > 0 || msg,
+  };
+}
 
 function parsePlanPriceEuros(price: string): number {
   const digits = price.replace(/\s/g, '').replace(/[^\d]/g, '');
@@ -67,6 +77,7 @@ function QuoteRequestFormInner() {
 
   const {
     register,
+    control,
     handleSubmit,
     watch,
     setValue,
@@ -74,7 +85,8 @@ function QuoteRequestFormInner() {
     reset,
   } = useForm<QuoteFormValues>({
     defaultValues: {
-      name: '',
+      firstName: '',
+      lastName: '',
       email: '',
       phone: '',
       planId: '',
@@ -143,7 +155,8 @@ function QuoteRequestFormInner() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           type: 'quote',
-          name: data.name,
+          firstName: data.firstName.trim(),
+          lastName: data.lastName.trim(),
           email: data.email,
           phone: data.phone || '',
           planId: data.planId,
@@ -233,8 +246,10 @@ function QuoteRequestFormInner() {
                   planField.onChange(e);
                   writeStoredFormule(e.target.value || null);
                 }}
-                className={`${inputStyles} cursor-pointer appearance-none bg-[length:1rem] bg-[right_1rem_center] bg-no-repeat pr-12`}
+                className={`${inputStyles} form-select-dark cursor-pointer appearance-none bg-[length:1rem] bg-[right_1rem_center] bg-no-repeat pr-12`}
                 style={{
+                  backgroundColor: '#120a1c',
+                  color: 'var(--text-white)',
                   backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='rgba(240,238,255,0.45)' stroke-width='2'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E")`,
                 }}
               >
@@ -307,21 +322,74 @@ function QuoteRequestFormInner() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <input {...register('name', { required: true })} placeholder={t('name')} className={inputStyles} />
-                {errors.name && <p className="text-nova-outer text-xs mt-1">Required</p>}
+                <label htmlFor="quote-firstName" className="block text-text-muted text-xs mb-2 font-medium">
+                  {t('firstName')} <span className="text-nova-outer">*</span>
+                </label>
+                <input
+                  id="quote-firstName"
+                  {...register('firstName', reqTrim(t('fieldRequired')))}
+                  autoComplete="given-name"
+                  className={inputStyles}
+                  aria-required="true"
+                />
+                {errors.firstName && <p className="text-nova-outer text-xs mt-1">{errors.firstName.message}</p>}
               </div>
               <div>
+                <label htmlFor="quote-lastName" className="block text-text-muted text-xs mb-2 font-medium">
+                  {t('lastName')} <span className="text-nova-outer">*</span>
+                </label>
                 <input
-                  {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
-                  type="email"
-                  placeholder={t('email')}
+                  id="quote-lastName"
+                  {...register('lastName', reqTrim(t('fieldRequired')))}
+                  autoComplete="family-name"
                   className={inputStyles}
+                  aria-required="true"
                 />
-                {errors.email && <p className="text-nova-outer text-xs mt-1">Required</p>}
+                {errors.lastName && <p className="text-nova-outer text-xs mt-1">{errors.lastName.message}</p>}
               </div>
             </div>
             <div>
-              <input {...register('phone')} type="tel" placeholder={t('quotePhone')} className={inputStyles} />
+              <label htmlFor="quote-email" className="block text-text-muted text-xs mb-2 font-medium">
+                {t('email')} <span className="text-nova-outer">*</span>
+              </label>
+              <input
+                id="quote-email"
+                {...register('email', {
+                  required: t('fieldRequired'),
+                  pattern: { value: /^\S+@\S+$/i, message: t('invalidEmail') },
+                })}
+                type="email"
+                autoComplete="email"
+                className={inputStyles}
+                aria-required="true"
+              />
+              {errors.email && <p className="text-nova-outer text-xs mt-1">{errors.email.message}</p>}
+            </div>
+            <div>
+              <label htmlFor="quote-phone" className="block text-text-muted text-xs mb-2 font-medium">
+                {t('quotePhone')} <span className="text-nova-outer">*</span>
+              </label>
+              <Controller
+                name="phone"
+                control={control}
+                rules={{
+                  required: t('phoneRequired'),
+                  validate: (v) => validatePhoneFull(v || '') || t('phoneInvalid'),
+                }}
+                render={({ field }) => (
+                  <PhoneField
+                    id="quote-phone"
+                    value={field.value || ''}
+                    onChange={field.onChange}
+                    onBlur={field.onBlur}
+                    disabled={sending}
+                    hasError={!!errors.phone}
+                  />
+                )}
+              />
+              {errors.phone && (
+                <p className="text-nova-outer text-xs mt-1">{String(errors.phone.message)}</p>
+              )}
             </div>
             <div>
               <textarea

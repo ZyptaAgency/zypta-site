@@ -30,6 +30,20 @@ body {
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+/* Windows / Chrome: éviter <select> et <option> blanc sur blanc */
+select.form-select-dark {
+  background-color: #120a1c;
+  color: var(--text-white);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+select.form-select-dark option,
+select.form-select-dark optgroup {
+  background-color: #120a1c;
+  color: var(--text-white);
 }
 
 body {

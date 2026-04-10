@@ -2,21 +2,26 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Eye, Send, CheckCircle, Sparkles } from 'lucide-react';
 import AnimatedSection from '../AnimatedSection';
 import QuoteRequestForm from '../QuoteRequestForm';
+import PhoneField from '../PhoneField';
+import { validatePhoneFull } from '@/lib/phone-countries';
 
 interface ContactFormData {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
+  phone: string;
   subject: string;
   message: string;
 }
 
 interface PreviewFormData {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
   business: string;
@@ -29,6 +34,13 @@ interface PreviewFormData {
 
 const inputStyles =
   'w-full bg-white/[0.03] border border-white/10 rounded-xl px-5 py-3.5 text-text-white text-sm placeholder:text-text-muted/60 focus:outline-none focus:border-accent-primary/50 focus:shadow-[0_0_20px_rgba(200,75,255,0.15)] transition-all duration-300';
+
+function reqTrim(msg: string) {
+  return {
+    required: msg,
+    validate: (v: string) => (v || '').trim().length > 0 || msg,
+  };
+}
 
 function SuccessBanner({ title, subtitle, icon }: { title: string; subtitle: string; icon: 'contact' | 'preview' }) {
   return (
@@ -113,7 +125,15 @@ function ContactForm() {
   const t = useTranslations('contact');
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>();
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<ContactFormData>({
+    defaultValues: { firstName: '', lastName: '', email: '', phone: '', subject: '', message: '' },
+  });
 
   const [error, setError] = useState<string | null>(null);
 
@@ -124,7 +144,15 @@ function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type: 'contact', ...data }),
+        body: JSON.stringify({
+          type: 'contact',
+          firstName: data.firstName.trim(),
+          lastName: data.lastName.trim(),
+          email: data.email,
+          phone: data.phone,
+          subject: data.subject,
+          message: data.message,
+        }),
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok) {
@@ -169,21 +197,99 @@ function ContactForm() {
             onSubmit={handleSubmit(onSubmit)}
             className="space-y-4"
           >
-            <div>
-              <input {...register('name', { required: true })} placeholder={t('name')} className={inputStyles} />
-              {errors.name && <p className="text-nova-outer text-xs mt-1">Required</p>}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="contact-firstName" className="block text-text-muted text-xs mb-2 font-medium">
+                  {t('firstName')} <span className="text-nova-outer">*</span>
+                </label>
+                <input
+                  id="contact-firstName"
+                  {...register('firstName', reqTrim(t('fieldRequired')))}
+                  autoComplete="given-name"
+                  className={inputStyles}
+                  aria-required="true"
+                />
+                {errors.firstName && <p className="text-nova-outer text-xs mt-1">{errors.firstName.message}</p>}
+              </div>
+              <div>
+                <label htmlFor="contact-lastName" className="block text-text-muted text-xs mb-2 font-medium">
+                  {t('lastName')} <span className="text-nova-outer">*</span>
+                </label>
+                <input
+                  id="contact-lastName"
+                  {...register('lastName', reqTrim(t('fieldRequired')))}
+                  autoComplete="family-name"
+                  className={inputStyles}
+                  aria-required="true"
+                />
+                {errors.lastName && <p className="text-nova-outer text-xs mt-1">{errors.lastName.message}</p>}
+              </div>
             </div>
             <div>
-              <input {...register('email', { required: true, pattern: /^\S+@\S+$/i })} type="email" placeholder={t('email')} className={inputStyles} />
-              {errors.email && <p className="text-nova-outer text-xs mt-1">Required</p>}
+              <label htmlFor="contact-email" className="block text-text-muted text-xs mb-2 font-medium">
+                {t('email')} <span className="text-nova-outer">*</span>
+              </label>
+              <input
+                id="contact-email"
+                {...register('email', {
+                  required: t('fieldRequired'),
+                  pattern: { value: /^\S+@\S+$/i, message: t('invalidEmail') },
+                })}
+                type="email"
+                autoComplete="email"
+                className={inputStyles}
+                aria-required="true"
+              />
+              {errors.email && <p className="text-nova-outer text-xs mt-1">{errors.email.message}</p>}
             </div>
             <div>
-              <input {...register('subject', { required: true })} placeholder={t('subject')} className={inputStyles} />
-              {errors.subject && <p className="text-nova-outer text-xs mt-1">Required</p>}
+              <label htmlFor="contact-phone" className="block text-text-muted text-xs mb-2 font-medium">
+                {t('phoneFormLabel')} <span className="text-nova-outer">*</span>
+              </label>
+              <Controller
+                name="phone"
+                control={control}
+                rules={{
+                  required: t('phoneRequired'),
+                  validate: (v) => validatePhoneFull(v || '') || t('phoneInvalid'),
+                }}
+                render={({ field }) => (
+                  <PhoneField
+                    id="contact-phone"
+                    value={field.value || ''}
+                    onChange={field.onChange}
+                    onBlur={field.onBlur}
+                    disabled={sending}
+                    hasError={!!errors.phone}
+                  />
+                )}
+              />
+              {errors.phone && <p className="text-nova-outer text-xs mt-1">{String(errors.phone.message)}</p>}
             </div>
             <div>
-              <textarea {...register('message', { required: true })} placeholder={t('message')} rows={4} className={`${inputStyles} resize-none`} />
-              {errors.message && <p className="text-nova-outer text-xs mt-1">Required</p>}
+              <label htmlFor="contact-subject" className="block text-text-muted text-xs mb-2 font-medium">
+                {t('subject')} <span className="text-nova-outer">*</span>
+              </label>
+              <input
+                id="contact-subject"
+                {...register('subject', reqTrim(t('fieldRequired')))}
+                className={inputStyles}
+                aria-required="true"
+              />
+              {errors.subject && <p className="text-nova-outer text-xs mt-1">{errors.subject.message}</p>}
+            </div>
+            <div>
+              <label htmlFor="contact-message" className="block text-text-muted text-xs mb-2 font-medium">
+                {t('message')} <span className="text-nova-outer">*</span>
+              </label>
+              <textarea
+                id="contact-message"
+                {...register('message', reqTrim(t('fieldRequired')))}
+                rows={4}
+                className={`${inputStyles} resize-none`}
+                aria-required="true"
+              />
+              {errors.message && <p className="text-nova-outer text-xs mt-1">{errors.message.message}</p>}
             </div>
             {error && <p className="text-nova-outer text-sm">{error}</p>}
             <button type="submit" disabled={sending} className="btn-primary w-full text-base disabled:opacity-60">
@@ -198,18 +304,45 @@ function ContactForm() {
 
 function PreviewForm() {
   const t = useTranslations('preview');
+  const tc = useTranslations('contact');
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<PreviewFormData>();
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<PreviewFormData>({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      business: '',
+      service: '',
+      details: '',
+      servicesOffered: '',
+    },
+  });
 
-  const onSubmit = async (data: PreviewFormData, e?: React.BaseSyntheticEvent) => {
+  const onSubmit = async (data: PreviewFormData) => {
     setSending(true);
     setError(null);
     try {
-      const form = e?.target as HTMLFormElement;
-      const formData = form ? new FormData(form) : new FormData();
+      const formData = new FormData();
       formData.set('type', 'preview');
+      formData.set('firstName', data.firstName.trim());
+      formData.set('lastName', data.lastName.trim());
+      formData.set('email', data.email);
+      formData.set('phone', data.phone);
+      formData.set('business', data.business.trim());
+      formData.set('service', data.service);
+      formData.set('details', data.details || '');
+      formData.set('servicesOffered', data.servicesOffered || '');
+      if (data.photo?.[0]) formData.append('photo', data.photo[0]);
+      if (data.logo?.[0]) formData.append('logo', data.logo[0]);
 
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -268,32 +401,97 @@ function PreviewForm() {
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <input {...register('name', { required: true })} placeholder={t('name')} className={inputStyles} />
-                  {errors.name && <p className="text-nova-outer text-xs mt-1">Required</p>}
+                  <label htmlFor="preview-firstName" className="block text-text-muted text-xs mb-2 font-medium">
+                    {tc('firstName')} <span className="text-nova-outer">*</span>
+                  </label>
+                  <input
+                    id="preview-firstName"
+                    {...register('firstName', reqTrim(tc('fieldRequired')))}
+                    autoComplete="given-name"
+                    className={inputStyles}
+                    aria-required="true"
+                  />
+                  {errors.firstName && <p className="text-nova-outer text-xs mt-1">{errors.firstName.message}</p>}
                 </div>
                 <div>
-                  <input {...register('email', { required: true, pattern: /^\S+@\S+$/i })} type="email" placeholder={t('email')} className={inputStyles} />
-                  {errors.email && <p className="text-nova-outer text-xs mt-1">Required</p>}
-                </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <input {...register('phone')} type="tel" placeholder={t('phone')} className={inputStyles} />
-                </div>
-                <div>
-                  <input {...register('business', { required: true })} placeholder={t('businessPlaceholder')} className={inputStyles} />
-                  {errors.business && <p className="text-nova-outer text-xs mt-1">Required</p>}
+                  <label htmlFor="preview-lastName" className="block text-text-muted text-xs mb-2 font-medium">
+                    {tc('lastName')} <span className="text-nova-outer">*</span>
+                  </label>
+                  <input
+                    id="preview-lastName"
+                    {...register('lastName', reqTrim(tc('fieldRequired')))}
+                    autoComplete="family-name"
+                    className={inputStyles}
+                    aria-required="true"
+                  />
+                  {errors.lastName && <p className="text-nova-outer text-xs mt-1">{errors.lastName.message}</p>}
                 </div>
               </div>
               <div>
-                <label className="block text-text-muted text-xs mb-2 font-medium">{t('serviceLabel')}</label>
+                <label htmlFor="preview-email" className="block text-text-muted text-xs mb-2 font-medium">
+                  {t('email')} <span className="text-nova-outer">*</span>
+                </label>
+                <input
+                  id="preview-email"
+                  {...register('email', {
+                    required: tc('fieldRequired'),
+                    pattern: { value: /^\S+@\S+$/i, message: tc('invalidEmail') },
+                  })}
+                  type="email"
+                  autoComplete="email"
+                  className={inputStyles}
+                  aria-required="true"
+                />
+                {errors.email && <p className="text-nova-outer text-xs mt-1">{errors.email.message}</p>}
+              </div>
+              <div>
+                <label htmlFor="preview-phone" className="block text-text-muted text-xs mb-2 font-medium">
+                  {t('phone')} <span className="text-nova-outer">*</span>
+                </label>
+                <Controller
+                  name="phone"
+                  control={control}
+                  rules={{
+                    required: tc('phoneRequired'),
+                    validate: (v) => validatePhoneFull(v || '') || tc('phoneInvalid'),
+                  }}
+                  render={({ field }) => (
+                    <PhoneField
+                      id="preview-phone"
+                      value={field.value || ''}
+                      onChange={field.onChange}
+                      onBlur={field.onBlur}
+                      disabled={sending}
+                      hasError={!!errors.phone}
+                    />
+                  )}
+                />
+                {errors.phone && <p className="text-nova-outer text-xs mt-1">{String(errors.phone.message)}</p>}
+              </div>
+              <div>
+                <label htmlFor="preview-business" className="block text-text-muted text-xs mb-2 font-medium">
+                  {t('business')} <span className="text-nova-outer">*</span>
+                </label>
+                <input
+                  id="preview-business"
+                  {...register('business', reqTrim(tc('fieldRequired')))}
+                  placeholder={t('businessPlaceholder')}
+                  className={inputStyles}
+                  aria-required="true"
+                />
+                {errors.business && <p className="text-nova-outer text-xs mt-1">{errors.business.message}</p>}
+              </div>
+              <div>
+                <label className="block text-text-muted text-xs mb-2 font-medium">
+                  {t('serviceLabel')} <span className="text-nova-outer">*</span>
+                </label>
                 <div className="flex flex-wrap gap-2">
                   {serviceKeys.map((key) => (
                     <label key={key} className="relative cursor-pointer">
                       <input
                         type="radio"
                         value={key}
-                        {...register('service', { required: true })}
+                        {...register('service', { required: tc('fieldRequired') })}
                         className="peer sr-only"
                       />
                       <span className="block px-4 py-2 rounded-full text-xs font-medium border border-white/10 text-text-muted bg-white/[0.03] transition-all peer-checked:border-accent-primary peer-checked:text-text-white peer-checked:bg-accent-primary/15 peer-checked:shadow-[0_0_15px_rgba(200,75,255,0.2)] hover:border-white/20">
@@ -302,7 +500,7 @@ function PreviewForm() {
                     </label>
                   ))}
                 </div>
-                {errors.service && <p className="text-nova-outer text-xs mt-1">Required</p>}
+                {errors.service && <p className="text-nova-outer text-xs mt-1">{errors.service.message}</p>}
               </div>
               <div>
                 <textarea {...register('details')} placeholder={t('detailsPlaceholder')} rows={3} className={`${inputStyles} resize-none`} />

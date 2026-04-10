@@ -132,6 +132,10 @@
     "headline": "Let's talk about your project.",
     "sub": "Request a free preview, build your quote online (plan + add-ons), or message us directly.",
     "name": "Full Name",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "fieldRequired": "This field is required.",
+    "invalidEmail": "Invalid email address.",
     "email": "Email Address",
     "subject": "Subject",
     "message": "Message",
@@ -164,7 +168,13 @@
     "quoteSubmit": "Send my quote request",
     "quoteSuccessTitle": "Quote request sent!",
     "quoteSuccessSub": "We received your selection. You'll get a tailored proposal shortly.",
-    "quotePhone": "Phone (optional)",
+    "quotePhone": "Phone",
+    "phoneFormLabel": "Phone",
+    "phoneRequired": "Phone number is required.",
+    "phoneInvalid": "Invalid number for this country. Check the prefix and digit count.",
+    "phoneCountryLabel": "Country & prefix",
+    "phoneNationalPlaceholder": "Number without country code",
+    "phoneIntlHint": "International format: country code + national number (no leading 0). Up to 15 digits in total after +.",
     "quotePerMonth": "/mo",
     "quoteCopyLink": "Copy quote link",
     "quoteCopied": "Link copied"
@@ -172,11 +182,10 @@
   "preview": {
     "title": "Request a Free Preview",
     "sub": "Tell us what you're looking for, and we'll prepare a personalized mockup.",
-    "name": "Full Name",
     "email": "Email Address",
     "phone": "Phone Number",
     "business": "Your Business",
-    "businessPlaceholder": "E.g. Hairdresser, Restaurant, Freelancer...",
+    "businessPlaceholder": "Activity / profession",
     "serviceLabel": "Desired Service",
     "serviceOptions": {
       "showcase": "Showcase Website",
@@ -272,8 +281,8 @@
           "Contact form",
           "Basic SEO (tags, sitemap, meta)",
           "GDPR cookie banner",
-          "Domain and hosting not included (your responsibility)",
-          "Guidance and help configuring them for go-live",
+          "First year hosting included",
+          "First year domain included",
           "Delivery in 7 days"
         ],
         "examples": [
@@ -355,35 +364,35 @@
       {
         "icon": "FileText",
         "label": "Copywriting",
-        "price": "+ €290",
+        "price": "+ €190",
         "description": "Professional copy for your pages: hooks, services, about. Tone matched to your brand, SEO-friendly.",
         "slug": "redaction"
       },
       {
         "icon": "Globe",
         "label": "Multilingual site",
-        "price": "+ €390",
+        "price": "+ €290",
         "description": "Your site in FR / NL / EN with automatic routing. Ideal for Brussels and international clients.",
         "slug": "multilingue"
       },
       {
         "icon": "FileText",
         "label": "Blog / headless CMS",
-        "price": "+ €490",
+        "price": "+ €290",
         "description": "An editable blog from a simple back office. Great for long-term SEO and sharing expertise.",
         "slug": "blog"
       },
       {
         "icon": "Calendar",
         "label": "Booking integration",
-        "price": "+ €590",
+        "price": "+ €390",
         "description": "Online appointment booking synced with your calendar. Clients book straight from your site.",
         "slug": "reservation"
       },
       {
         "icon": "Palette",
         "label": "Logo & visual identity",
-        "price": "+ €390",
+        "price": "+ €290",
         "description": "Custom logo, colour palette, typography and brand guidelines. Consistent identity everywhere.",
         "slug": "branding"
       },
@@ -398,7 +407,7 @@
     "faq": [
       {
         "q": "Are the prices final?",
-        "a": "Yes. The price shown is what you pay, VAT included. No hidden fees. If your project goes beyond the plan, we tell you upfront with a detailed quote."
+        "a": "Yes. VAT included. No hidden fees. Clear quote before we start. If your project goes beyond the plan, we tell you upfront with a detailed quote."
       },
       {
         "q": "How does payment work?",
@@ -410,7 +419,7 @@
       },
       {
         "q": "Are domain and hosting included?",
-        "a": "No — we don't sell those. You buy your domain and hosting from providers you choose; we guide you and help connect the site when we go live."
+        "a": "Yes: first year included on Essential and Pro (domain + hosting). After that, expect about €15–30/year depending on providers. Vercel hosting for the site itself stays free."
       },
       {
         "q": "Can I edit the site myself later?",
