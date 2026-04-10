@@ -20,6 +20,23 @@
     "sub": "Transformez votre présence digitale. On s'occupe de tout.",
     "cta": "Découvrir nos services"
   },
+  "marqueeBand": {
+    "items": [
+      "SEO & SEA",
+      "Google Ads",
+      "Performance web",
+      "Core Web Vitals",
+      "Accessibilité (a11y)",
+      "Mobile-first & responsive",
+      "UX & parcours utilisateur",
+      "Bonnes pratiques web",
+      "Sites vitrines & e-commerce",
+      "Sécurité & RGPD",
+      "Conversion & tunnels",
+      "HTML sémantique",
+      "Analytics & mesure"
+    ]
+  },
   "homeIntro": {
     "title": "Votre partenaire digital à Bruxelles",
     "p1": "Zypta est une agence digitale belge qui accompagne entrepreneurs, freelances et PME dans leur transformation en ligne. Basés à Bruxelles, nous créons des sites web sur mesure, des boutiques e-commerce et des stratégies de visibilité qui font la différence. Nous proposons aussi ZyptaBTP, un CRM conçu spécialement pour les artisans du bâtiment.",
@@ -113,20 +130,20 @@
     "processStep3": "Lancement",
     "processText": "Tout commence par un premier contact (email, appel ou visio). On discute de vos objectifs, puis on vous fournit une proposition claire avec devis et délais. De là, on travaille ensemble — étape par étape — avec une transparence totale, du premier jet au lancement, et même au-delà.",
     "faqTitle": "FAQ",
-    "faq1q": "Quels types de sites proposez-vous ?",
-    "faq1a": "Nous proposons des sites vitrines modernes et ergonomiques, des boutiques e-commerce (WordPress/Shopify), ainsi que des services de branding et de marketing digital.",
-    "faq2q": "Combien de temps prend un projet ?",
-    "faq2a": "Un site vitrine prend généralement 1 à 2 semaines. Un e-commerce peut prendre 2 à 4 semaines selon la complexité. On vous donne toujours un délai clair dès le départ.",
-    "faq3q": "Comment se passe la création de site ?",
-    "faq3a": "On commence par un échange pour comprendre vos besoins. Ensuite, on vous propose un devis et un calendrier. On travaille ensemble étape par étape avec des validations régulières.",
-    "faq4q": "Proposez-vous de la maintenance ?",
-    "faq4a": "Oui, nous proposons des formules de maintenance pour garder votre site à jour, sécurisé et performant.",
-    "faq5q": "Faites-vous du SEO et de la pub en ligne ?",
-    "faq5a": "Absolument. Nous optimisons votre référencement naturel (SEO) et gérons vos campagnes publicitaires (Google Ads, Meta Ads) pour maximiser votre visibilité.",
-    "faq6q": "Que comprend la création de logo ?",
-    "faq6a": "Notre service inclut la recherche créative, plusieurs propositions de logo, les révisions, et la livraison en formats haute résolution pour web et print.",
-    "faq7q": "Gérez-vous les campagnes email ?",
-    "faq7a": "Oui, nous configurons et gérons vos campagnes email via des plateformes comme Mailchimp ou Brevo pour engager votre audience efficacement."
+    "faq1q": "Quels services proposez-vous ?",
+    "faq1a": "Sites vitrines sur mesure, boutiques e-commerce WordPress ou Shopify, référencement naturel (SEO) et campagnes Google Ads (SEA), création de logo et branding, ainsi que ZyptaBTP — notre CRM pour artisans du bâtiment (devis, factures PDF, chantiers, relances).",
+    "faq2q": "Combien de temps prend un site web ?",
+    "faq2a": "Un site vitrine prend en général 1 à 2 semaines. Un e-commerce compte plutôt 2 à 4 semaines selon le périmètre. Les délais sont précisés dans la proposition, avant le lancement.",
+    "faq3q": "Comment se déroule un projet avec vous ?",
+    "faq3a": "Contact (email, appel ou visio), puis devis et calendrier. Ensuite, itérations et validations ensemble jusqu’au lancement — même approche pour site vitrine, e-commerce ou identité visuelle.",
+    "faq4q": "Proposez-vous de la maintenance pour les sites ?",
+    "faq4a": "Oui. Des formules de maintenance permettent de garder votre site à jour, sécurisé et performant après la mise en ligne.",
+    "faq5q": "Faites-vous du SEO et de la publicité Google ?",
+    "faq5a": "Oui. Nous travaillons le SEO (contenu, structure, bonnes pratiques) et les campagnes Google Ads sur le réseau de recherche pour améliorer votre visibilité et les demandes qualifiées.",
+    "faq6q": "Que comprend la création de logo et le branding ?",
+    "faq6a": "Recherche créative, propositions de logo, révisions, et livraison en formats adaptés au web et à l’impression, en ligne avec votre positionnement.",
+    "faq7q": "C’est quoi ZyptaBTP ?",
+    "faq7a": "Une application dédiée aux artisans du bâtiment : suivi des clients, devis et factures professionnels, chantiers, relances et estimateur IA — en complément de nos offres sites web, avec essai gratuit de 2 semaines."
   },
   "contact": {
     "headline": "Parlons de votre projet.",

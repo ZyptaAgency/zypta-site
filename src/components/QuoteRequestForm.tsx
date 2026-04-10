@@ -256,7 +256,7 @@ function QuoteRequestFormInner() {
                 <option value="">{t('quotePlanEmpty')}</option>
                 {plans.map((p) => (
                   <option key={p.id} value={p.id}>
-                    {p.name} — {p.price} € ({p.priceNote})
+                    {p.name} - {p.price} € ({p.priceNote})
                   </option>
                 ))}
               </select>

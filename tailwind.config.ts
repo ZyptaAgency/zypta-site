@@ -30,7 +30,7 @@ const config: Config = {
         "float-slow": "float 8s ease-in-out infinite",
         "float-mid": "float 6s ease-in-out infinite",
         "float-fast": "float 4s ease-in-out infinite",
-        "marquee": "marquee 30s linear infinite",
+        "marquee": "marquee 55s linear infinite",
         "twinkle": "twinkle 4s ease-in-out infinite",
       },
       keyframes: {

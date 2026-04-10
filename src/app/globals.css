@@ -33,8 +33,13 @@ html {
   color-scheme: dark;
 }
 
-/* Windows / Chrome: éviter <select> et <option> blanc sur blanc */
+/*
+ * Windows / Chrome / Edge : listes déroulantes natives souvent en thème clair
+ * si color-scheme n’est pas posé sur le <select>. Forcer fond + texte foncés.
+ */
 select.form-select-dark {
+  color-scheme: dark;
+  accent-color: var(--accent-primary);
   background-color: #120a1c;
   color: var(--text-white);
   border-color: rgba(255, 255, 255, 0.12);
@@ -42,6 +47,14 @@ select.form-select-dark {
 
 select.form-select-dark option,
 select.form-select-dark optgroup {
+  color-scheme: dark;
+  background-color: #1a1028;
+  color: #f0eeff;
+}
+
+/* État ouvert / focus : garder les mêmes couleurs (évite flash clair) */
+select.form-select-dark:focus,
+select.form-select-dark:focus-visible {
   background-color: #120a1c;
   color: var(--text-white);
 }

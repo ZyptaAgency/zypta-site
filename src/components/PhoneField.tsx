@@ -68,7 +68,7 @@ export default function PhoneField({ id, value, onChange, onBlur, disabled, hasE
         >
           {rows.map((c: PhoneCountryRow) => (
             <option key={c.iso} value={c.iso}>
-              {c.flag} {c.dial} — {c.name}
+              {c.flag} {c.dial} - {c.name}
             </option>
           ))}
         </select>

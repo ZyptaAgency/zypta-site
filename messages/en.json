@@ -20,6 +20,23 @@
     "sub": "Transform your digital presence. We handle everything.",
     "cta": "Explore Our Services"
   },
+  "marqueeBand": {
+    "items": [
+      "SEO & SEA",
+      "Google Ads",
+      "Web performance",
+      "Core Web Vitals",
+      "Accessibility (a11y)",
+      "Mobile-first & responsive",
+      "UX & user journeys",
+      "Web best practices",
+      "Showcase & e-commerce",
+      "Security & GDPR",
+      "Conversion & funnels",
+      "Semantic HTML",
+      "Analytics & measurement"
+    ]
+  },
   "homeIntro": {
     "title": "Your Digital Partner in Brussels",
     "p1": "Zypta is a Belgian digital agency supporting entrepreneurs, freelancers and SMEs in their online transformation. Based in Brussels, we create custom websites, e-commerce stores and visibility strategies that make a real difference. We also offer ZyptaBTP, a CRM built specifically for construction tradespeople.",
@@ -113,20 +130,20 @@
     "processStep3": "Launch",
     "processText": "Everything starts with a first contact (email, call, or video meeting). We discuss your goals, provide a clear proposal with a quote and timeline. We work together step by step with full transparency — from first draft to launch, and beyond.",
     "faqTitle": "FAQ",
-    "faq1q": "What types of websites do you offer?",
-    "faq1a": "We offer modern, ergonomic showcase websites, e-commerce stores (WordPress/Shopify), as well as branding and digital marketing services.",
-    "faq2q": "How long does it take?",
-    "faq2a": "A showcase website typically takes 1 to 2 weeks. An e-commerce site can take 2 to 4 weeks depending on complexity. We always give you a clear timeline upfront.",
-    "faq3q": "How does the process work?",
-    "faq3a": "We start with a conversation to understand your needs. Then we provide a quote and timeline. We work together step by step with regular check-ins.",
-    "faq4q": "Do you offer maintenance?",
-    "faq4a": "Yes, we offer maintenance plans to keep your site updated, secure, and performing at its best.",
-    "faq5q": "Do you provide SEO and online advertising?",
-    "faq5a": "Absolutely. We optimize your SEO and manage your advertising campaigns (Google Ads, Meta Ads) to maximize your online visibility.",
-    "faq6q": "What does your logo service include?",
-    "faq6a": "Our service includes creative research, multiple logo proposals, revisions, and delivery in high-resolution formats for web and print.",
-    "faq7q": "Do you handle email campaigns?",
-    "faq7a": "Yes, we set up and manage your email campaigns through platforms like Mailchimp or Brevo to effectively engage your audience."
+    "faq1q": "What services do you offer?",
+    "faq1a": "Custom showcase websites, WordPress or Shopify e-commerce, SEO and Google Ads (search campaigns), logo design and branding, plus ZyptaBTP — our CRM for construction tradespeople (quotes, PDF invoices, job sites, follow-ups).",
+    "faq2q": "How long does a website project take?",
+    "faq2a": "A showcase site usually takes 1–2 weeks. E-commerce typically needs 2–4 weeks depending on scope. Timelines are spelled out in the proposal before we start.",
+    "faq3q": "How does a project with you work?",
+    "faq3a": "We start with contact (email, call or video), then a quote and schedule. From there we iterate together with clear check-ins until launch — for showcase sites, e-commerce or visual identity.",
+    "faq4q": "Do you offer website maintenance?",
+    "faq4a": "Yes. Maintenance plans keep your site updated, secure and performing well after go-live.",
+    "faq5q": "Do you handle SEO and Google advertising?",
+    "faq5a": "Yes. We work on SEO (content, structure, best practices) and Google Ads on the Search Network to improve visibility and qualified leads.",
+    "faq6q": "What’s included in logo and branding?",
+    "faq6a": "Creative exploration, logo concepts, revisions, and delivery in formats suited to web and print, aligned with your positioning.",
+    "faq7q": "What is ZyptaBTP?",
+    "faq7a": "An app built for construction tradespeople: client pipeline, professional quotes and invoices, job tracking, follow-ups and an AI estimator — alongside our website services, with a 2-week free trial."
   },
   "contact": {
     "headline": "Let's talk about your project.",
