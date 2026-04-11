@@ -17,7 +17,10 @@ import PricingRouteLoader from './PricingRouteLoader';
 const MIN_VISIBLE_MS = 2800;
 const EXTRA_AFTER_ARRIVE_MS = 1100;
 
-type Ctx = { startPricingNav: (afterClick?: () => void) => void };
+type Ctx = {
+  startRouteNav: (target: string, afterClick?: () => void) => void;
+  startPricingNav: (afterClick?: () => void) => void;
+};
 
 const PricingNavContext = createContext<Ctx | null>(null);
 
@@ -30,32 +33,41 @@ export function usePricingNav() {
 export function PricingNavProvider({ children }: { children: ReactNode }) {
   const [overlay, setOverlay] = useState(false);
   const startedAt = useRef<number | null>(null);
+  const targetPath = useRef<string | null>(null);
   const pathname = usePathname();
   const router = useRouter();
 
-  const startPricingNav = useCallback(
-    (afterClick?: () => void) => {
+  const startRouteNav = useCallback(
+    (target: string, afterClick?: () => void) => {
       afterClick?.();
-      if (pathname === '/pricing') {
-        document.getElementById('tarifs')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (pathname === target) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
       }
       startedAt.current = Date.now();
+      targetPath.current = target;
       setOverlay(true);
-      router.push('/pricing');
+      router.push(target);
     },
     [pathname, router],
   );
 
+  // Keep old name as alias for backwards compat
+  const startPricingNav = useCallback(
+    (afterClick?: () => void) => startRouteNav('/pricing', afterClick),
+    [startRouteNav],
+  );
+
   useEffect(() => {
-    if (!overlay || startedAt.current === null) return;
-    if (pathname !== '/pricing') return;
+    if (!overlay || startedAt.current === null || !targetPath.current) return;
+    if (pathname !== targetPath.current) return;
 
     const elapsed = Date.now() - startedAt.current;
     const wait = Math.max(0, MIN_VISIBLE_MS - elapsed) + EXTRA_AFTER_ARRIVE_MS;
     const id = window.setTimeout(() => {
       setOverlay(false);
       startedAt.current = null;
+      targetPath.current = null;
     }, wait);
     return () => window.clearTimeout(id);
   }, [overlay, pathname]);
@@ -65,6 +77,7 @@ export function PricingNavProvider({ children }: { children: ReactNode }) {
     const onPopState = () => {
       setOverlay(false);
       startedAt.current = null;
+      targetPath.current = null;
     };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
@@ -75,15 +88,16 @@ export function PricingNavProvider({ children }: { children: ReactNode }) {
     const id = window.setTimeout(() => {
       setOverlay(false);
       startedAt.current = null;
+      targetPath.current = null;
     }, 15000);
     return () => window.clearTimeout(id);
   }, [overlay]);
 
   return (
-    <PricingNavContext.Provider value={{ startPricingNav }}>
+    <PricingNavContext.Provider value={{ startRouteNav, startPricingNav }}>
       {children}
       <AnimatePresence mode="wait">
-        {overlay ? <PricingRouteLoader key="pricing-nav-overlay" /> : null}
+        {overlay ? <PricingRouteLoader key="route-nav-overlay" /> : null}
       </AnimatePresence>
     </PricingNavContext.Provider>
   );
@@ -93,26 +107,18 @@ type LinkHref = ComponentProps<typeof Link>['href'];
 
 export function PricingNavLink({
   href,
-  isPricing,
+  isPricing: _isPricing,
   className,
   onClick,
   children,
 }: {
   href: LinkHref;
-  isPricing: boolean;
+  isPricing?: boolean;
   className?: string;
   onClick?: () => void;
   children: ReactNode;
 }) {
-  const { startPricingNav } = usePricingNav();
-
-  if (!isPricing) {
-    return (
-      <Link href={href} className={className} onClick={onClick}>
-        {children}
-      </Link>
-    );
-  }
+  const { startRouteNav } = usePricingNav();
 
   return (
     <Link
@@ -120,7 +126,7 @@ export function PricingNavLink({
       className={className}
       onClick={(e) => {
         e.preventDefault();
-        startPricingNav(onClick);
+        startRouteNav(typeof href === 'string' ? href : '/', onClick);
       }}
     >
       {children}

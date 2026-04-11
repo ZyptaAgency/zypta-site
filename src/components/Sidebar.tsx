@@ -47,7 +47,6 @@ export default function Sidebar() {
                 <PricingNavLink
                   key={item.key}
                   href={item.href}
-                  isPricing={item.key === 'pricing'}
                   className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                     isActive
                       ? 'bg-accent-primary/15 text-text-white shadow-[0_0_20px_rgba(200,75,255,0.2)]'
@@ -129,7 +128,6 @@ export default function Sidebar() {
                       <PricingNavLink
                         key={item.key}
                         href={item.href}
-                        isPricing={item.key === 'pricing'}
                         onClick={() => setMobileOpen(false)}
                         className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                           isActive

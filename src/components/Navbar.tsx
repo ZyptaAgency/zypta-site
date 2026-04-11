@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { Link, usePathname } from '@/i18n/routing';
+import { usePathname } from '@/i18n/routing';
 import { PricingNavLink } from '@/components/PricingNavProvider';
 import HomeLogoLink from '@/components/HomeLogoLink';
 import { Menu, X, ExternalLink } from 'lucide-react';
@@ -79,7 +79,6 @@ export default function Navbar() {
                 <PricingNavLink
                   key={item.key}
                   href={item.href}
-                  isPricing={item.key === 'pricing'}
                   className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
                     isActive
                       ? 'bg-accent-primary/15 text-text-white shadow-[0_0_15px_rgba(200,75,255,0.2)]'
@@ -104,9 +103,9 @@ export default function Navbar() {
           {/* Right side */}
           <div className="flex items-center gap-3 shrink-0">
             <LanguageSwitcher />
-            <Link href="/contact" className="hidden md:inline-flex btn-primary !py-2 !px-5 text-sm">
+            <PricingNavLink href="/contact" className="hidden md:inline-flex btn-primary !py-2 !px-5 text-sm">
               {t('contact')}
-            </Link>
+            </PricingNavLink>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="md:hidden text-text-white p-1.5 rounded-lg hover:bg-white/5 transition-colors"
@@ -212,7 +211,6 @@ export default function Navbar() {
                   >
                     <PricingNavLink
                       href={item.href}
-                      isPricing={item.key === 'pricing'}
                       onClick={() => setMobileOpen(false)}
                       className="flex items-center justify-center min-h-[56px] py-3 text-center font-display text-[clamp(1.75rem,8vw,2.75rem)] font-medium leading-tight tracking-tight text-text-white/75 hover:text-text-white active:text-text-white transition-colors touch-manipulation"
                     >

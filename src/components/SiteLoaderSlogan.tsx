@@ -40,36 +40,33 @@ export default function SiteLoaderSlogan() {
   }
 
   return (
-    <div className="relative z-[1] flex flex-col items-center justify-center gap-8 sm:gap-12 px-6">
+    <div className="relative z-[1] flex flex-col items-center gap-8 sm:gap-12 px-6">
       {words.map((word, i) => {
         const wordDelay = wordDelays[i];
         const letters = word.split('');
 
         return (
           <div key={`${word}-${i}`} className="relative flex flex-col items-center">
-            <motion.div
-              className="relative inline-flex"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: wordDelay, duration: 0.08 }}
-            >
+            {/* Mot : les lettres sont toujours dans le flow (espace reservé), animées individuellement */}
+            <div className="relative inline-flex">
               {letters.map((letter, li) => (
                 <motion.span
                   key={`${word}-${i}-${li}`}
                   className="inline-block font-ethno font-bold leading-none text-4xl sm:text-6xl md:text-7xl gradient-text"
-                  initial={{ opacity: 0, y: 18, scale: 0.75 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{
                     delay: wordDelay + li * LETTER_STAGGER,
-                    duration: 0.35,
+                    duration: 0.32,
                     ease: [0.22, 1, 0.36, 1],
                   }}
                 >
                   {letter}
                 </motion.span>
               ))}
-            </motion.div>
+            </div>
 
+            {/* Ligne gradient */}
             <motion.div
               className="relative mt-5 h-[2px] w-[min(78vw,440px)] overflow-hidden rounded-full"
               style={{
@@ -77,7 +74,7 @@ export default function SiteLoaderSlogan() {
               }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: wordDelay + letters.length * LETTER_STAGGER, duration: 0.15 }}
+              transition={{ delay: wordDelay + letters.length * LETTER_STAGGER, duration: 0.12 }}
             >
               <motion.div
                 className="absolute inset-y-0 left-0 w-full origin-center rounded-full"

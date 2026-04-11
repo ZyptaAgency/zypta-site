@@ -138,14 +138,14 @@ export default function SiteLoader({
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <Logo src="/icon.png" width={96} height={96} />
+                  <Logo src="/icon.png" width={140} height={140} />
                 </motion.div>
 
                 <motion.span
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="font-ethno text-4xl sm:text-5xl md:text-6xl gradient-text tracking-tight leading-none"
+                  className="font-ethno text-5xl sm:text-6xl md:text-7xl gradient-text tracking-tight leading-none"
                 >
                   ZYPTA
                 </motion.span>
@@ -171,32 +171,13 @@ export default function SiteLoader({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.05, duration: 0.25, ease: 'easeOut' }}
-                className="relative z-10 flex items-center justify-center"
+                className="absolute inset-0 z-10 flex items-center justify-center"
               >
                 <SiteLoaderSlogan />
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* ── Barre de progression ── */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.15, duration: 0.3 }}
-            className="absolute bottom-16 left-1/2 -translate-x-1/2 w-48 h-0.5 rounded-full overflow-hidden"
-            style={{ background: 'rgba(255,255,255,0.08)' }}
-          >
-            <motion.div
-              initial={{ x: '-100%' }}
-              animate={{ x: '0%' }}
-              transition={{
-                duration: Math.max(0.8, duration / 1000 - 0.5),
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="h-full w-full rounded-full"
-              style={{ background: 'linear-gradient(90deg, #c84bff, #ff2d8f, #00d4ff)' }}
-            />
-          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

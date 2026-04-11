@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import PricingSloganReveal from './PricingSloganReveal';
+import SiteLoaderSlogan from './SiteLoaderSlogan';
 
 export default function PricingRouteLoader() {
   const t = useTranslations('footer');
@@ -23,7 +23,7 @@ export default function PricingRouteLoader() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_40%_at_50%_50%,rgba(200,75,255,0.04)_0%,transparent_72%)]"
         aria-hidden
       />
-      <PricingSloganReveal />
+      <SiteLoaderSlogan />
     </motion.div>
   );
 }
