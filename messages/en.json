@@ -298,8 +298,8 @@
           "Contact form",
           "Basic SEO (tags, sitemap, meta)",
           "GDPR cookie banner",
-          "First year hosting included",
-          "First year domain included",
+          "Source code delivered, production-ready",
+          "Checklist and guidance for going live",
           "Delivery in 7 days"
         ],
         "examples": [
@@ -436,7 +436,7 @@
       },
       {
         "q": "Are domain and hosting included?",
-        "a": "Yes: first year included on Essential and Pro (domain + hosting). After that, expect about €15–30/year depending on providers. Vercel hosting for the site itself stays free."
+        "a": "No — they are not part of our packages. You purchase your domain and hosting from a provider of your choice, at your own cost. We guide you and help connect the site when you go live."
       },
       {
         "q": "Can I edit the site myself later?",

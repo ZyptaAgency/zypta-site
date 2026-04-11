@@ -16,6 +16,14 @@ export type PhoneCountryRow = {
 const DEFAULT_ISO: CountryCode = 'BE';
 const MAX_NATIONAL_DIGITS = 15;
 
+/**
+ * PNG de drapeau (flagcdn) — s'affiche correctement sur Windows, contrairement aux emoji
+ * dans les <option> natives du navigateur.
+ */
+export function flagImageUrl(iso: string, width: 20 | 40 = 20): string {
+  return `https://flagcdn.com/w${width}/${iso.toLowerCase()}.png`;
+}
+
 /** Drapeau Unicode à partir du code ISO 3166-1 alpha-2 */
 export function isoToFlag(iso: string): string {
   const u = iso.toUpperCase();

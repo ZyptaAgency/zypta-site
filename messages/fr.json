@@ -298,8 +298,8 @@
           "Formulaire de contact",
           "SEO de base (balises, sitemap, meta)",
           "Bannière cookies RGPD",
-          "Hébergement 1ʳᵉ année offert",
-          "Nom de domaine 1ʳᵉ année offert",
+          "Code livré, prêt pour la mise en production",
+          "Checklist et conseils pour passer en ligne",
           "Livraison en 7 jours"
         ],
         "examples": [
@@ -436,7 +436,7 @@
       },
       {
         "q": "Le nom de domaine et l'hébergement sont-ils inclus ?",
-        "a": "Oui : 1ʳᵉ année offerte pour Essentiel et Pro (nom de domaine + hébergement). Ensuite, comptez environ 15 à 30 €/an selon les offres. L'hébergement Vercel pour le site reste gratuit."
+        "a": "Non — ce n'est pas inclus dans nos prestations. Vous souscrivez nom de domaine et hébergement chez le fournisseur de votre choix, à votre charge. Nous vous orientons et vous accompagnons pour connecter le site au moment de la mise en ligne."
       },
       {
         "q": "Puis-je modifier mon site moi-même après la livraison ?",

@@ -45,8 +45,8 @@ const pricingFr = {
         'Formulaire de contact',
         'SEO de base (balises, sitemap, meta)',
         'Bannière cookies RGPD',
-        'Nom de domaine et hébergement non inclus (à votre charge)',
-        'Conseils et aide à la configuration pour la mise en ligne',
+        'Code livré, prêt pour la mise en production',
+        'Checklist et conseils pour passer en ligne',
         'Livraison en 7 jours',
       ],
       examples: [
@@ -242,8 +242,8 @@ const pricingEn = {
         'Contact form',
         'Basic SEO (tags, sitemap, meta)',
         'GDPR cookie banner',
-        'Domain and hosting not included (your responsibility)',
-        'Guidance and help configuring them for go-live',
+        'Source code delivered, production-ready',
+        'Checklist and guidance for going live',
         'Delivery in 7 days',
       ],
       examples: [
