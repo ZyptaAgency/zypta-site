@@ -59,9 +59,9 @@ export default function Navbar() {
           border: '1px solid rgba(200,75,255,0.15)',
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between max-md:gap-x-7">
           {/* Logo: Z icon + ZYPTA typo */}
-          <HomeLogoLink className="flex items-center gap-3 shrink-0">
+          <HomeLogoLink className="flex items-center gap-2.5 sm:gap-3 shrink-0 min-w-0">
             <Logo src="/icon.png" width={44} height={44} />
             <span className="font-ethno text-2xl gradient-text tracking-wider leading-none">
               ZYPTA
@@ -102,7 +102,7 @@ export default function Navbar() {
           </nav>
 
           {/* Right side */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 shrink-0">
             <LanguageSwitcher />
             <Link href="/contact" className="hidden md:inline-flex btn-primary !py-2 !px-5 text-sm">
               {t('contact')}
@@ -169,10 +169,6 @@ export default function Navbar() {
             <div className="absolute top-6 left-6 w-10 h-10 pointer-events-none opacity-50">
               <div className="absolute top-0 left-0 w-full h-[1.5px] rounded-full bg-gradient-to-r from-accent-primary/80 to-transparent" />
               <div className="absolute top-0 left-0 w-[1.5px] h-full rounded-full bg-gradient-to-b from-accent-primary/80 to-transparent" />
-            </div>
-            <div className="absolute top-6 right-6 w-10 h-10 pointer-events-none opacity-50">
-              <div className="absolute top-0 right-0 w-full h-[1.5px] rounded-full bg-gradient-to-l from-nova-ice/70 to-transparent" />
-              <div className="absolute top-0 right-0 w-[1.5px] h-full rounded-full bg-gradient-to-b from-nova-ice/70 to-transparent" />
             </div>
 
             <div className="relative z-10 flex items-center justify-between shrink-0">
